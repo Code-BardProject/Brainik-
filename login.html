@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Մուտք գործել - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-hub {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .logo-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 32px;
+            color: white;
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .role-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 15px;
+        }
+        
+        .role-card.student .role-icon {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+        }
+        
+        .role-card.teacher .role-icon {
+            background: linear-gradient(135deg, #11998e20, #38ef7d20);
+        }
+        
+        .role-card.parent .role-icon {
+            background: linear-gradient(135deg, #fc4a1a20, #f7b73320);
+        }
+        
+        .role-card.admin .role-icon {
+            background: linear-gradient(135deg, #1a1a2e20, #16213e20);
+        }
+        
+        .role-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .role-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .footer-text {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+        }
+        
+        .footer-text a {
+            color: white;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 480px) {
+            .role-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-hub">
+        <div class="logo">
+            <div class="logo-icon">🧠</div>
+            <div class="logo-text">Brainik</div>
+        </div>
+        
+        <p class="subtitle">Ընտրիր քո դերը մուտք գործելու համար</p>
+        
+        <div class="role-grid">
+            <a href="student-login.html" class="role-card student">
+                <div class="role-icon">🎓</div>
+                <div class="role-title">Ուսանող</div>
+                <div class="role-desc">Մուտք գործիր որպես ուսանող</div>
+            </a>
+            
+            <a href="teacher-login.html" class="role-card teacher">
+                <div class="role-icon">👨‍🏫</div>
+                <div class="role-title">Ուսուցիչ</div>
+                <div class="role-desc">Մուտք գործիր որպես ուսուցիչ</div>
+            </a>
+            
+            <a href="parent-login.html" class="role-card parent">
+                <div class="role-icon">👨‍👩‍👧</div>
+                <div class="role-title">Ծնող</div>
+                <div class="role-desc">Հետևիր երեխայի առաջադիմությանը</div>
+            </a>
+            
+            <a href="admin-login.html" class="role-card admin">
+                <div class="role-icon">🛡️</div>
+                <div class="role-title">Ադմին</div>
+                <div class="role-desc">Կառավարման համակարգ</div>
+            </a>
+        </div>
+        
+        <p class="footer-text">
+            Դեռ չունե՞ս հաշիվ <a href="signup.html">Գրանցվել</a>
+        </p>
+    </div>
+</body>
+</html>

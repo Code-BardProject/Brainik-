@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ Գրանցում ադմինիստրատորների համար - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .admin-container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .admin-container::-webkit-scrollbar { width: 6px; }
+        .admin-container::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 3px;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .admin-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            margin: 0 auto 15px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            border: 3px solid white;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #1a1a2e;
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .security-warning {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+            border: 2px solid rgba(231, 76, 60, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .security-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #c0392b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .security-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-label span { color: #e74c3c; }
+        
+        .form-input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: #fafafa;
+        }
+        
+        .form-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+            background: white;
+        }
+        
+        .password-wrapper {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.6;
+        }
+        
+        .access-code-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .access-code-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .access-code-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .checkbox-wrapper input {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+            margin-top: 2px;
+        }
+        
+        .checkbox-wrapper a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .footer-text a {
+            color: #667eea;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .other-roles {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .other-roles-title {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .role-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .role-link {
+            font-size: 13px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .admin-container {
+                padding: 25px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="logo-section">
+            <div class="admin-icon">🛡️</div>
+            <span class="role-badge">Ադմինիստրատոր</span>
+        </div>
+        
+        <h1>Ադմին գրանցում</h1>
+        <p class="subtitle">Միացիր կառավարման թիմին</p>
+        
+        <div class="security-warning">
+            <div class="security-title">⚠️ Անվտանգության նախազգուշացում</div>
+            <div class="security-text">Այս բաժինը պահպանված է միայն արտոնագրված ադմինիստրատորների համար: Անօրինական մուտքի փորձերը կգրանցվեն և կհաղորդվեն իրավապահ մարմիններին:</div>
+        </div>
+        
+        <form id="adminSignupForm" onsubmit="handleAdminSignup(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Անուն <span>*</span></label>
+                    <input type="text" class="form-input" id="firstName" placeholder="Անուն" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ազգանուն <span>*</span></label>
+                    <input type="text" class="form-input" id="lastName" placeholder="Ազգանուն" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Էլ. փոստ <span>*</span></label>
+                <input type="email" class="form-input" id="email" placeholder="admin@brainik.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Հեռախոս <span>*</span></label>
+                <input type="tel" class="form-input" id="phone" placeholder="+374 XX XX XX XX" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Պաշտոն <span>*</span></label>
+                <input type="text" class="form-input" id="position" placeholder="Օրինակ՝ IT Ադմինիստրատոր" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Գաղտնաբառ <span>*</span></label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="password" placeholder="Ուժեղ գաղտնաբառ" required minlength="8">
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            
+            <div class="access-code-section">
+                <div class="access-code-title">🔐 Մուտքի կոդ</div>
+                <div class="access-code-text">Մուտքագրիր ընկերության կողմից տրամադրված ադմինիստրատորի մուտքի կոդը:</div>
+                <input type="password" class="form-input" id="accessCode" placeholder="••••••••" required>
+            </div>
+            
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="terms" required>
+                <span>Ես հաստատում եմ, որ ես լիազորված ադմինիստրատոր եմ և համաձայն եմ <a href="#">Անվտանգության պայմաններին</a></span>
+            </label>
+            
+            <button type="submit" class="btn-submit">Ստեղծել ադմին հաշիվ</button>
+        </form>
+        
+        <div class="divider">կամ</div>
+        
+        <p class="footer-text">
+            Արդեն ունե՞ս հաշիվ <a href="admin-login.html">Մուտք գործել →</a>
+        </p>
+        
+        <div class="other-roles">
+            <div class="other-roles-title">Այլ դերեր</div>
+            <div class="role-links">
+                <a href="student-signup.html" class="role-link">🎓 Ուսանող</a>
+                <a href="teacher-signup.html" class="role-link">👨‍🏫 Ուսուցիչ</a>
+                <a href="parent-signup.html" class="role-link">👨‍👩‍👧 Ծնող</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+        
+        function handleAdminSignup(e) {
+            e.preventDefault();
+            
+            const accessCode = document.getElementById('accessCode').value;
+            const validCode = 'ADMIN2024'; // Demo access code
+            
+            if (accessCode !== validCode) {
+                alert('❍ Սխալ մուտքի կոդ: Դիմեք IT բաժին:');
+                return;
+            }
+            
+            const formData = {
+                role: 'admin',
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                position: document.getElementById('position').value,
+                password: document.getElementById('password').value
+            };
+            
+            // Save to localStorage
+            const admins = JSON.parse(localStorage.getItem('brainik_admins') || '[]');
+            admins.push(formData);
+            localStorage.setItem('brainik_admins', JSON.stringify(admins));
+            localStorage.setItem('brainik_current_user', JSON.stringify(formData));
+            
+            alert('✅ Ադմին հաշիվը ստեղծվեց: Բարի գալուստ, ' + formData.firstName + '!');
+            window.location.href = 'admin-dashboard.html';
+        }
+    </script>
+</body>
+</html>

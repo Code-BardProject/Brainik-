@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Վարկանիշ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/stats-ranking.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="puzzles.html" class="nav-link">Puzzles</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                        <li><a href="ranking.html" class="nav-link active">Ranking</a></li>
+                    </ul>
+                    
+                    <div class="user-actions">
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="stats-page">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="page-header-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">🏆 Գլոբալ Վարկանիշ</h1>
+                    <p class="page-description">Մրցիր ընկերներիդ և այլ երեխաների հետ, վաստակիր մրցանակներ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="section">
+            <div class="container">
+                <div class="ranking-container">
+                    <!-- Leaderboard -->
+                    <div class="ranking-leaderboard">
+                        <div class="leaderboard-header">
+                            <h2 class="leaderboard-title">Լավագույն 10</h2>
+                            <div class="leaderboard-filters">
+                                <button class="leaderboard-filter active">Ամբողջ աշխարհ</button>
+                                <button class="leaderboard-filter">Ընկերներ</button>
+                                <button class="leaderboard-filter">Քաղաք</button>
+                                <button class="leaderboard-filter">Դպրոց</button>
+                            </div>
+                        </div>
+                        <div class="leaderboard-list">
+                            <!-- Top 1 -->
+                            <div class="leaderboard-item top-1">
+                                <div class="leaderboard-rank">1</div>
+                                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">
+                                        Դավիթ Հակոբյան
+                                        <span>👑</span>
+                                    </div>
+                                    <div class="leaderboard-level">Մակարդակ 25 • Առաջադեմ</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>5,678</span>
+                                </div>
+                                <div class="leaderboard-trend trend-up">↑</div>
+                            </div>
+                            
+                            <!-- Top 2 -->
+                            <div class="leaderboard-item top-2">
+                                <div class="leaderboard-rank">2</div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">
+                                        Մարիամ Սարգսյան
+                                        <span>🥈</span>
+                                    </div>
+                                    <div class="leaderboard-level">Մակարդակ 23 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>5,234</span>
+                                </div>
+                                <div class="leaderboard-trend trend-up">↑</div>
+                            </div>
+                            
+                            <!-- Top 3 -->
+                            <div class="leaderboard-item top-3">
+                                <div class="leaderboard-rank">3</div>
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">
+                                        Անի Մանուկյան
+                                        <span>🥉</span>
+                                    </div>
+                                    <div class="leaderboard-level">Մակարդակ 22 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>4,890</span>
+                                </div>
+                                <div class="leaderboard-trend trend-down">↓</div>
+                            </div>
+                            
+                            <!-- Rank 4 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">4</div>
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Գագիկ Պետրոսյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 20 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>4,567</span>
+                                </div>
+                                <div class="leaderboard-trend trend-up">↑</div>
+                            </div>
+                            
+                            <!-- Rank 5 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">5</div>
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Նարե Ավագյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 19 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>4,234</span>
+                                </div>
+                                <div class="leaderboard-trend trend-same">−</div>
+                            </div>
+                            
+                            <!-- Rank 6 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">6</div>
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Տիգրան Մկրտչյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 18 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>3,987</span>
+                                </div>
+                                <div class="leaderboard-trend trend-up">↑</div>
+                            </div>
+                            
+                            <!-- Rank 7 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">7</div>
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Լիլիթ Կարապետյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 17 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>3,756</span>
+                                </div>
+                                <div class="leaderboard-trend trend-down">↓</div>
+                            </div>
+                            
+                            <!-- Rank 8 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">8</div>
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Հայկ Արսենյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 16 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>3,543</span>
+                                </div>
+                                <div class="leaderboard-trend trend-up">↑</div>
+                            </div>
+                            
+                            <!-- Rank 9 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">9</div>
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Սոնա Գրիգորյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 15 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>3,321</span>
+                                </div>
+                                <div class="leaderboard-trend trend-same">−</div>
+                            </div>
+                            
+                            <!-- Rank 10 -->
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank">10</div>
+                                <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&q=80" alt="Avatar" class="leaderboard-avatar">
+                                <div class="leaderboard-user">
+                                    <div class="leaderboard-name">Արմեն Վարդանյան</div>
+                                    <div class="leaderboard-level">Մակարդակ 15 • Փորձառու</div>
+                                </div>
+                                <div class="leaderboard-score">
+                                    <span>⭐</span>
+                                    <span>3,109</span>
+                                </div>
+                                <div class="leaderboard-trend trend-down">↓</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="ranking-sidebar">
+                        <!-- Your Position -->
+                        <div class="ranking-card">
+                            <h3 class="ranking-card-title">
+                                <span class="icon">📍</span>
+                                Քո դիրքը
+                            </h3>
+                            <div class="user-position">
+                                <div class="position-number">#127</div>
+                                <div class="position-label">Ամբողջ աշխարհում</div>
+                                <div class="position-progress">
+                                    <span>📈 +15 այս շաբաթ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Friends -->
+                        <div class="ranking-card">
+                            <h3 class="ranking-card-title">
+                                <span class="icon">👥</span>
+                                Ընկերներ
+                            </h3>
+                            <div class="friends-list">
+                                <div class="friend-item">
+                                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=100&q=80" alt="Friend" class="friend-avatar">
+                                    <div class="friend-info">
+                                        <div class="friend-name">Դավիթ Հ.</div>
+                                        <div class="friend-status online">● Առցանց</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 5,678</span>
+                                </div>
+                                <div class="friend-item">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Friend" class="friend-avatar">
+                                    <div class="friend-info">
+                                        <div class="friend-name">Մարիամ Ս.</div>
+                                        <div class="friend-status offline">● Օֆլայն</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 5,234</span>
+                                </div>
+                                <div class="friend-item">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Friend" class="friend-avatar">
+                                    <div class="friend-info">
+                                        <div class="friend-name">Գագիկ Պ.</div>
+                                        <div class="friend-status online">● Առցանց</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 4,567</span>
+                                </div>
+                                <div class="friend-item">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Friend" class="friend-avatar">
+                                    <div class="friend-info">
+                                        <div class="friend-name">Տիգրան Մ.</div>
+                                        <div class="friend-status offline">● Օֆլայն</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 3,987</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weekly Challenge -->
+                        <div class="ranking-card">
+                            <h3 class="ranking-card-title">
+                                <span class="icon">🎯</span>
+                                Շաբաթվա մարտահրավեր
+                            </h3>
+                            <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+                                Ավարտիր 20 դաս այս շաբաթ և ստացիր կրկնակի աստղեր!
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: var(--space-sm); font-size: var(--text-sm);">
+                                <span style="color: var(--text-muted);">13/20 դաս</span>
+                                <span style="color: var(--primary-purple); font-weight: 700;">65%</span>
+                            </div>
+                        </div>
+
+                        <!-- Top Schools -->
+                        <div class="ranking-card">
+                            <h3 class="ranking-card-title">
+                                <span class="icon">🏫</span>
+                                Լավագույն դպրոցներ
+                            </h3>
+                            <div class="friends-list">
+                                <div class="friend-item">
+                                    <div class="friend-avatar" style="background: var(--primary-gradient); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Դպրոց #198</div>
+                                        <div class="friend-status">Երևան</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 45,678</span>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="friend-avatar" style="background: var(--star-silver); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Դպրոց #42</div>
+                                        <div class="friend-status">Գյումրի</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 42,345</span>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="friend-avatar" style="background: var(--star-bronze); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Դպրոց #15</div>
+                                        <div class="friend-status">Վանաձոր</div>
+                                    </div>
+                                    <span class="friend-score">⭐ 38,901</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="logo-icon">🧠</div>
+                            <span>Brainik</span>
+                        </div>
+                        <p class="footer-description">Կրթական հարթակ 2-15 տարեկան երեխաների համար։</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik. Բոլոր իրավունքները պաշտպանված են։</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Leaderboard filters
+        document.querySelectorAll('.leaderboard-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.leaderboard-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+    <script src="js/auth-check.js"></script>
+    <script>
+        // Auth check for Ranking page
+        AuthCheck.init('Ranking');
+    </script>
+</body>
+</html>

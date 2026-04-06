@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հանելուկներ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/puzzles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="puzzles.html" class="nav-link active">Puzzles</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                        <li><a href="ranking.html" class="nav-link">Ranking</a></li>
+                    </ul>
+                    
+                    <div class="user-actions">
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                        <div class="header-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span class="stat-value">1,234</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">🔥</span>
+                                <span class="stat-value">5</span>
+                            </div>
+                        </div>
+                        
+                        <a href="login.html" class="btn btn-primary">Sign In</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="puzzles-page">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="page-header-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">🧩 Հանելուկներ</h1>
+                    <p class="page-description">Ընտրիր քեզ հետաքրքրող առաջադրանքը և սկսիր սովորել խաղալով</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Տարիք:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active">Բոլորը</button>
+                            <button class="filter-btn">2-3</button>
+                            <button class="filter-btn">4-6</button>
+                            <button class="filter-btn">7-9</button>
+                            <button class="filter-btn">10+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Թեմա:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active">Բոլորը</button>
+                            <button class="filter-btn">Տրամաբանություն</button>
+                            <button class="filter-btn">Մաթեմատիկա</button>
+                            <button class="filter-btn">Պատմություն</button>
+                            <button class="filter-btn">Գիտություն</button>
+                        </div>
+                    </div>
+                    
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Որոնել հանելուկներ..." class="search-input">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level Path -->
+        <section class="level-path">
+            <div class="container">
+                <div class="path-container">
+                    <div class="path-line"></div>
+                    
+                    <div class="path-node node-completed">
+                        <div class="node-number">1</div>
+                        <div class="node-connector"></div>
+                        <div class="node-content">
+                            <div class="node-header">
+                                <div class="node-icon">🎨</div>
+                                <div class="node-info">
+                                    <h4>Գույների աշխարհը</h4>
+                                    <span>Սկսնակ • 5 րոպե</span>
+                                </div>
+                            </div>
+                            <div class="node-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                                <span class="progress-text">✓ Ավարտված</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="path-node node-completed">
+                        <div class="node-number">2</div>
+                        <div class="node-connector"></div>
+                        <div class="node-content">
+                            <div class="node-header">
+                                <div class="node-icon">🔢</div>
+                                <div class="node-info">
+                                    <h4>Թվերի ճանաչում</h4>
+                                    <span>Սկսնակ • 8 րոպե</span>
+                                </div>
+                            </div>
+                            <div class="node-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                                <span class="progress-text">✓ Ավարտված</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="path-node node-current">
+                        <div class="node-number">3</div>
+                        <div class="node-connector"></div>
+                        <div class="node-content">
+                            <div class="node-header">
+                                <div class="node-icon">🧩</div>
+                                <div class="node-info">
+                                    <h4>Տրամաբանական հանելուկներ</h4>
+                                    <span>Միջին • 15 րոպե</span>
+                                </div>
+                            </div>
+                            <div class="node-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-text">60% կատարված</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="path-node node-locked">
+                        <div class="node-number">4</div>
+                        <div class="node-connector"></div>
+                        <div class="node-content">
+                            <div class="node-header">
+                                <div class="node-icon">🔒</div>
+                                <div class="node-info">
+                                    <h4>Մաթեմատիկական խաղեր</h4>
+                                    <span>Միջին • 20 րոպե</span>
+                                </div>
+                            </div>
+                            <div class="node-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">🔒 Կողպված</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="path-node node-locked">
+                        <div class="node-number">5</div>
+                        <div class="node-connector"></div>
+                        <div class="node-content">
+                            <div class="node-header">
+                                <div class="node-icon">🔒</div>
+                                <div class="node-info">
+                                    <h4>Հայկական պատմություն</h4>
+                                    <span>Առաջադեմ • 25 րոպե</span>
+                                </div>
+                            </div>
+                            <div class="node-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">🔒 Կողպված</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercises Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <h2 class="section-title">Բոլոր <span class="gradient-text">առաջադրանքները</span></h2>
+                </div>
+                
+                <div class="exercises-grid">
+                    <!-- Exercise Card 1 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-4-6">4-6</span>
+                            </div>
+                            <button class="exercise-favorite">♡</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Տրամաբանություն</span>
+                            <h3 class="exercise-title">Գույների խառնուրդ</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>5 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+20 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise1')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Card 2 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-7-9">7-9</span>
+                            </div>
+                            <button class="exercise-favorite active">♥</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Մաթեմատիկա</span>
+                            <h3 class="exercise-title">Թվաբանության հիմունքներ</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>10 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+35 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise2')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Card 3 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1564399580075-5dfe19c205f3?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-10-plus">10+</span>
+                            </div>
+                            <button class="exercise-favorite">♡</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Պատմություն</span>
+                            <h3 class="exercise-title">Հին Հայաստան</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>20 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+50 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise3')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Card 4 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-7-9">7-9</span>
+                            </div>
+                            <button class="exercise-favorite">♡</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Գիտություն</span>
+                            <h3 class="exercise-title">Տիեզերական ճանապարհորդություն</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>15 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+40 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise4')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Card 5 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-2-3">2-3</span>
+                            </div>
+                            <button class="exercise-favorite">♡</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Ուշադրություն</span>
+                            <h3 class="exercise-title">Որոնիր և գտիր</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>5 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+15 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise5')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Card 6 -->
+                    <div class="exercise-card" data-animate>
+                        <div class="exercise-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&q=80" alt="Exercise">
+                            <div class="exercise-badges">
+                                <span class="badge badge-age-10-plus">10+</span>
+                            </div>
+                            <button class="exercise-favorite">♡</button>
+                        </div>
+                        <div class="exercise-content">
+                            <span class="exercise-category">Ծրագրավորում</span>
+                            <h3 class="exercise-title">Scratch-ով ծրագրավորում</h3>
+                            <div class="exercise-meta">
+                                <div class="exercise-difficulty">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot active"></span>
+                                </div>
+                                <span class="exercise-duration">
+                                    <span>⏱</span>
+                                    <span>30 րոպե</span>
+                                </span>
+                            </div>
+                            <div class="exercise-stats">
+                                <span class="exercise-points">
+                                    <span>⭐</span>
+                                    <span>+75 աստղ</span>
+                                </span>
+                                <button class="exercise-btn" onclick="openModal('exercise6')">Սկսել</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Exercise Modal -->
+    <div class="exercise-modal" id="exerciseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?w=800&q=80" alt="Exercise">
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Գույների խառնուրդ</h2>
+                <p class="modal-description">
+                    Այս առաջադրանքում դու կսովորես հիմնական գույների մասին և նրանց խառնուրդները։ 
+                    Պարզ և հաճելի վարժություններով կհամալրես գիտելիքներդ։
+                </p>
+                
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Ուսումնասիրելու հմտություններ</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Գույների ճանաչում</span>
+                        <span class="skill-tag">Տեսողական մտածողություն</span>
+                        <span class="skill-tag">Հիշողություն</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Պարգևատրում</h4>
+                    <div class="modal-rewards">
+                        <div class="reward-item">
+                            <div class="reward-icon">⭐</div>
+                            <div class="reward-info">
+                                <span class="reward-value">+20 աստղ</span>
+                                <span class="reward-label">Հիմնական</span>
+                            </div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-icon">🎯</div>
+                            <div class="reward-info">
+                                <span class="reward-value">+50 XP</span>
+                                <span class="reward-label">Փորձ</span>
+                            </div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-icon">🏆</div>
+                            <div class="reward-info">
+                                <span class="reward-value">Մեդալ</span>
+                                <span class="reward-label">Ավարտելու համար</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="modal-btn modal-btn-primary">Սկսել առաջադրանքը</button>
+                    <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Հետ գնալ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="logo-icon">🧠</div>
+                            <span>Brainik</span>
+                        </div>
+                        <p class="footer-description">
+                            Կրթական հարթակ 2-15 տարեկան երեխաների համար։
+                        </p>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Հարթակ</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html" class="footer-link">Գլխավոր</a></li>
+                            <li><a href="puzzles.html" class="footer-link">Հանելուկներ</a></li>
+                            <li><a href="stats.html" class="footer-link">Անձնական արխիվ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Օգնություն</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Հաճախակի հարցեր</a></li>
+                            <li><a href="#" class="footer-link">Կապ մեզ հետ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik. Բոլոր իրավունքները պաշտպանված են։</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Modal Functions
+        function openModal(exerciseId) {
+            document.getElementById('exerciseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('exerciseModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('exerciseModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Favorite buttons
+        document.querySelectorAll('.exercise-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                this.textContent = this.classList.contains('active') ? '♥' : '♡';
+            });
+        });
+    </script>
+    <script src="js/auth-check.js"></script>
+    <script>
+        // Auth check for Puzzles page
+        AuthCheck.init('Puzzles');
+    </script>
+</body>
+</html>

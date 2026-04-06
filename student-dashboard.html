@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Իմ Արկղ - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #667eea;
+            --primary-dark: #764ba2;
+            --success: #11998e;
+            --warning: #f7b733;
+            --danger: #fc4a1a;
+            --bg: #f8f9fa;
+            --card-bg: white;
+            --text: #2d3748;
+            --text-light: #718096;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 15px 25px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Fredoka One', cursive;
+            font-size: 24px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .stat-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border: 3px solid white;
+        }
+        
+        /* Notification Styles */
+        .notification-wrapper {
+            position: relative;
+        }
+        
+        .notification-bell {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-bell:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #ff416c;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .notification-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .notification-dropdown.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .notification-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .notification-clear {
+            font-size: 13px;
+            color: #667eea;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .notification-item {
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .notification-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .notification-delete {
+            font-size: 12px;
+            color: #ff416c;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .notification-empty {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+        
+        .user-name {
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        /* Main Layout */
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 25px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 85px;
+            height: fit-content;
+        }
+        
+        .nav-menu {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .nav-item i {
+            font-size: 20px;
+        }
+        
+        .nav-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .nav-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-left: 15px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        /* Welcome Banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 24px;
+            padding: 35px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .welcome-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-text {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+        
+        .welcome-streak {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        
+        .streak-number {
+            font-size: 48px;
+            font-weight: 800;
+        }
+        
+        .streak-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-icon-box.purple { background: linear-gradient(135deg, #667eea20, #764ba220); }
+        .stat-icon-box.green { background: linear-gradient(135deg, #11998e20, #38ef7d20); }
+        .stat-icon-box.orange { background: linear-gradient(135deg, #fc4a1a20, #f7b73320); }
+        .stat-icon-box.blue { background: linear-gradient(135deg, #4facfe20, #00f2fe20); }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text);
+        }
+        
+        .btn-view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        /* Course Cards */
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .course-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .course-item:hover {
+            background: linear-gradient(135deg, var(--primary)10, var(--primary-dark)10);
+            transform: translateX(5px);
+        }
+        
+        .course-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .course-info {
+            flex: 1;
+        }
+        
+        .course-name {
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        
+        .course-progress {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Achievement Cards */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, #ffd70020, #ffed4e20);
+            border: 2px solid #ffd70040;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .achievement-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        /* Activity List */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .activity-text {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text);
+        }
+        
+        .activity-time {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .action-btn.purple .action-icon { background: linear-gradient(135deg, #667eea20, #764ba220); }
+        .action-btn.green .action-icon { background: linear-gradient(135deg, #11998e20, #38ef7d20); }
+        .action-btn.orange .action-icon { background: linear-gradient(135deg, #fc4a1a20, #f7b73320); }
+        .action-btn.blue .action-icon { background: linear-gradient(135deg, #4facfe20, #00f2fe20); }
+        
+        .action-label {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        /* Logout Button */
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-section {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .stats-bar {
+                display: none;
+            }
+            
+            .welcome-banner {
+                padding: 25px;
+            }
+            
+            .welcome-title {
+                font-size: 24px;
+            }
+            
+            .welcome-streak {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+                text-align: left;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🧠</div>
+                <span>Brainik</span>
+            </a>
+            
+            <div class="user-menu">
+                <div class="stats-bar">
+                    <div class="stat-badge">⭐ <span id="points">1,234</span></div>
+                    <div class="stat-badge">🔥 <span id="streak">5</span> օր</div>
+                    <div class="stat-badge">💎 <span id="gems">42</span></div>
+                </div>
+                
+                <!-- Notification Bell -->
+                <div class="notification-wrapper">
+                    <div class="notification-bell" onclick="toggleNotifications()">
+                        🔔
+                        <span class="notification-badge" id="notifBadge">1</span>
+                    </div>
+                    <div class="notification-dropdown" id="notifDropdown">
+                        <div class="notification-header">
+                            <span class="notification-title">🔔 ծանուցումներ</span>
+                            <button class="notification-clear" onclick="clearAllNotifications()">Մաքրել բոլորը</button>
+                        </div>
+                        <div id="notificationsList">
+                            <div class="notification-item" id="welcomeNotif">
+                                <div class="notification-text">
+                                    👋 Ողջույն дорогой ученик! Поздравляю с успешной регистрацией! 🎉
+                                </div>
+                                <button class="notification-delete" onclick="deleteNotification('welcomeNotif')">
+                                    🗑️ Удалить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="user-profile" onclick="toggleProfileMenu()">
+                    <div class="user-avatar">🎓</div>
+                    <span class="user-name" id="userName">Ուսանող</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="student-dashboard.html" class="nav-item active">
+                    <span>🏠</span> Գլխավոր
+                </a>
+                <a href="puzzles.html" class="nav-item">
+                    <span>🧩</span> Puzzles
+                </a>
+                <a href="stats.html" class="nav-item">
+                    <span>📊</span> My Stats
+                </a>
+                <a href="ranking.html" class="nav-item">
+                    <span>🏆</span> Ranking
+                </a>
+                <a href="hero-cards.html" class="nav-item">
+                    <span>🦸</span> Hero Cards
+                </a>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Ուսում</div>
+                    <a href="#" class="nav-item">
+                        <span>📚</span> Դասեր
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span>📝</span> Առաջադրանքներ
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span>🎯</span> Նպատակներ
+                    </a>
+                </div>
+                
+                <button class="logout-btn" onclick="logout()">
+                    <span>🚪</span> Դուրս գալ
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h1 class="welcome-title">Բարի գալուստ, <span id="welcomeName">Ուսանող</span>! 🎉</h1>
+                <p class="welcome-text">Շարունակիր սովորել և զարգացնել քո հմտությունները: Այսօր դու ունես 3 ակտիվ առաջադրանք:</p>
+                <div class="welcome-streak">
+                    <div class="streak-number">🔥 5</div>
+                    <div class="streak-label">օր շարունակ</div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon-box purple">🧩</div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Puzzles լուծված</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-box green">📚</div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Դասեր ավարտված</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-box orange">⏱️</div>
+                    <div class="stat-value">48ժ</div>
+                    <div class="stat-label">Ուսման ժամանակ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-box blue">🎯</div>
+                    <div class="stat-value">85%</div>
+                    <div class="stat-label">Ճշգրտություն</div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Active Courses -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">📚 Ակտիվ դասերներդ</h2>
+                            <a href="#" class="btn-view-all">Դիտել բոլորը →</a>
+                        </div>
+                        <div class="course-list">
+                            <div class="course-item">
+                                <div class="course-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">🔢</div>
+                                <div class="course-info">
+                                    <div class="course-name">Մաթեմատիկա</div>
+                                    <div class="course-progress">12/20 դաս (60%)</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-icon" style="background: linear-gradient(135deg, #11998e, #38ef7d);">🧪</div>
+                                <div class="course-info">
+                                    <div class="course-name">Ֆիզիկա</div>
+                                    <div class="course-progress">8/15 դաս (53%)</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 53%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-icon" style="background: linear-gradient(135deg, #fc4a1a, #f7b733);">🌍</div>
+                                <div class="course-info">
+                                    <div class="course-name">Աշխարհագրություն</div>
+                                    <div class="course-progress">5/10 դաս (50%)</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">📋 Վերջին գործողություններ</h2>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #667eea20, #764ba220);">✓</div>
+                                <span class="activity-text">Ավարտեցիր Մաթեմատիկայի 12-րդ դասը</span>
+                                <span class="activity-time">2 ժամ առաջ</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #11998e20, #38ef7d20);">🏆</div>
+                                <span class="activity-text">Ստացար "Մաթեմատիկոս" կտրոնը</span>
+                                <span class="activity-time">5 ժամ առաջ</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #fc4a1a20, #f7b73320);">🧩</div>
+                                <span class="activity-text">Լուծեցիր 5 Puzzles Physics-ում</span>
+                                <span class="activity-time">1 օր առաջ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Achievements -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">🏆 Ձեռքբերումներ</h2>
+                            <a href="hero-cards.html" class="btn-view-all">Բոլորը →</a>
+                        </div>
+                        <div class="achievement-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">🌟</div>
+                                <div class="achievement-name">Նորեկ</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon">🔥</div>
+                                <div class="achievement-name">Շարունակ</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon">🧠</div>
+                                <div class="achievement-name">Մտքեր</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">⚡ Արագ գործողություններ</h2>
+                        </div>
+                        <div class="quick-actions">
+                            <a href="puzzles.html" class="action-btn purple">
+                                <div class="action-icon">🧩</div>
+                                <span class="action-label">Լուծել Puzzles</span>
+                            </a>
+                            <a href="#" class="action-btn green">
+                                <div class="action-icon">📖</div>
+                                <span class="action-label">Նոր դաս</span>
+                            </a>
+                            <a href="#" class="action-btn orange">
+                                <div class="action-icon">🎯</div>
+                                <span class="action-label">Ստուգություն</span>
+                            </a>
+                            <a href="ranking.html" class="action-btn blue">
+                                <div class="action-icon">🏅</div>
+                                <span class="action-label">Դասակարգում</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load user data
+        function loadUserData() {
+            const user = JSON.parse(localStorage.getItem('brainik_current_user'));
+            if (user) {
+                document.getElementById('userName').textContent = user.firstName || 'Ուսանող';
+                document.getElementById('welcomeName').textContent = user.firstName || 'Ուսանող';
+            }
+        }
+        
+        // Notification Functions
+        function toggleNotifications() {
+            const dropdown = document.getElementById('notifDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        function deleteNotification(id) {
+            const notification = document.getElementById(id);
+            if (notification) {
+                notification.remove();
+                updateNotificationBadge();
+            }
+        }
+        
+        function clearAllNotifications() {
+            const list = document.getElementById('notificationsList');
+            list.innerHTML = `
+                <div class="notification-empty">
+                    📭 ծանուցումներ չկան
+                </div>
+            `;
+            updateNotificationBadge();
+        }
+        
+        function updateNotificationBadge() {
+            const items = document.querySelectorAll('.notification-item');
+            const badge = document.getElementById('notifBadge');
+            badge.textContent = items.length;
+            if (items.length === 0) {
+                badge.style.display = 'none';
+            }
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const wrapper = document.querySelector('.notification-wrapper');
+            const dropdown = document.getElementById('notifDropdown');
+            if (!wrapper.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+        
+        // Logout function
+        function logout() {
+            localStorage.removeItem('brainik_current_user');
+            window.location.href = 'index.html';
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadUserData);
+    </script>
+</body>
+</html>

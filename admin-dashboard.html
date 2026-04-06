@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ադմին Վահանակ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="dashboard-page">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Admin" class="sidebar-avatar">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">Ադմին</div>
+                <div class="sidebar-user-role">Գլխավոր ադմինիստրատոր</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Վահանակ</span>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active">
+                    <span class="icon">📊</span>
+                    <span>Վիճակագրություն</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">👤</span>
+                    <span>Օգտատերեր</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">🧩</span>
+                    <span>Հանելուկներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">🦸</span>
+                    <span>Հերոսներ</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Կառավարում</span>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link">
+                    <span class="icon">💰</span>
+                    <span>Վճարումներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">🏆</span>
+                    <span>Մրցույթներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">📢</span>
+                    <span>Ծանուցումներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">⚙️</span>
+                    <span>Կարգավորումներ</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Հաշիվ</span>
+            <nav class="sidebar-nav">
+                <a href="admin-profile.html" class="sidebar-link">
+                    <span class="icon">👤</span>
+                    <span>Հաշվի կարգավորումներ</span>
+                </a>
+                <a href="login.html" class="sidebar-link logout-link" onclick="return handleLogout()">
+                    <span class="icon">🚪</span>
+                    <span>Դուրս գալ</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">📊 Ադմին Վահանակ</h1>
+            <div class="dashboard-actions">
+                <span class="live-indicator">● Կենդանի տվյալներ</span>
+            </div>
+        </div>
+        
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon blue">👤</div>
+                    <span class="stat-card-trend up">+12% ↑</span>
+                </div>
+                <div class="stat-card-value">5,678</div>
+                <div class="stat-card-label">Ընդհանուր օգտատերեր</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon green">📚</div>
+                    <span class="stat-card-trend up">+5% ↑</span>
+                </div>
+                <div class="stat-card-value">1,234</div>
+                <div class="stat-card-label">Ավարտված դասեր այսօր</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon yellow">💰</div>
+                    <span class="stat-card-trend up">+8% ↑</span>
+                </div>
+                <div class="stat-card-value">₽ 456K</div>
+                <div class="stat-card-label">Այս ամսվա եկամուտ</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon pink">🔥</div>
+                    <span class="stat-card-trend up">+23% ↑</span>
+                </div>
+                <div class="stat-card-value">892</div>
+                <div class="stat-card-label">Ակտիվ այս պահին</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">📈 Օգտատերերի աճ</h3>
+                    <div class="dashboard-card-actions">
+                        <button class="dashboard-card-btn active">Տարի</button>
+                        <button class="dashboard-card-btn">Ամիս</button>
+                    </div>
+                </div>
+                <div class="dashboard-card-content">
+                    <div class="activity-chart">
+                        <div class="chart-placeholder">
+                            <span>📊</span>
+                            <span>Օգտատերերի աճի գրաֆիկ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">🎯 Լավագույն դասեր</h3>
+                </div>
+                <div class="dashboard-card-content">
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">1️⃣</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Մաթեմատիկայի հիմունքներ</div>
+                                <div class="activity-time">1,234 ավարտված</div>
+                            </div>
+                            <span class="activity-points">⭐ 4.9</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">2️⃣</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Տրամաբանական խաղեր</div>
+                                <div class="activity-time">1,156 ավարտված</div>
+                            </div>
+                            <span class="activity-points">⭐ 4.8</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">3️⃣</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Հայոց պատմություն</div>
+                                <div class="activity-time">987 ավարտված</div>
+                            </div>
+                            <span class="activity-points">⭐ 4.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card" style="margin-top: var(--space-2xl);">
+            <div class="dashboard-card-header">
+                <h3 class="dashboard-card-title">👤 Վերջին գրանցված օգտատերեր</h3>
+                <a href="#" class="dashboard-card-btn">Բոլորը →</a>
+            </div>
+            <div class="dashboard-card-content">
+                <div class="users-table">
+                    <div class="table-header">
+                        <span>Անուն</span>
+                        <span>Դեր</span>
+                        <span>Ամսաթիվ</span>
+                        <span>Ստատուս</span>
+                    </div>
+                    <div class="table-row">
+                        <div class="user-cell">
+                            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=50&q=80" alt="User">
+                            <span>Անի Մանուկյան</span>
+                        </div>
+                        <span class="role-badge student">Ուսանող</span>
+                        <span>Հուն 21, 2026</span>
+                        <span class="status-badge active">Ակտիվ</span>
+                    </div>
+                    <div class="table-row">
+                        <div class="user-cell">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&q=80" alt="User">
+                            <span>Հովհաննես Պետրոսյան</span>
+                        </div>
+                        <span class="role-badge teacher">Ուսուցիչ</span>
+                        <span>Հուն 21, 2026</span>
+                        <span class="status-badge active">Ակտիվ</span>
+                    </div>
+                    <div class="table-row">
+                        <div class="user-cell">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&q=80" alt="User">
+                            <span>Մարիամ Սարգսյան</span>
+                        </div>
+                        <span class="role-badge parent">Ծնող</span>
+                        <span>Հուն 20, 2026</span>
+                        <span class="status-badge pending">Սպասում</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Admin logout handler
+        function handleLogout() {
+            if (confirm('Վստա՞հ եք, որ ուզում եք դուրս գալ համակարգից')) {
+                // Clear admin session
+                localStorage.removeItem('brainik-admin-token');
+                localStorage.removeItem('brainik-admin-user');
+                return true;
+            }
+            return false;
+        }
+        
+        // Check admin authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminToken = localStorage.getItem('brainik-admin-token');
+            const adminUser = localStorage.getItem('brainik-admin-user');
+            
+            // If not logged in, redirect to admin login
+            if (!adminToken && !window.location.href.includes('admin-login')) {
+                // For demo purposes, we'll just show a message
+                console.log('Admin not authenticated');
+            }
+            
+            // Update admin name if available
+            if (adminUser) {
+                const userData = JSON.parse(adminUser);
+                document.querySelector('.sidebar-user-name').textContent = userData.name || 'Ադմին';
+            }
+        });
+        
+        // Mobile sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            });
+        }
+        
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

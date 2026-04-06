@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Վիճակագրություն - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/stats-ranking.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="puzzles.html" class="nav-link">Puzzles</a></li>
+                        <li><a href="stats.html" class="nav-link active">My Stats</a></li>
+                        <li><a href="ranking.html" class="nav-link">Ranking</a></li>
+                    </ul>
+                    
+                    <div class="user-actions">
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="stats-page">
+        <!-- Profile Header -->
+        <section class="profile-header">
+            <div class="profile-header-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="profile-header-content">
+                    <div class="profile-avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&q=80" alt="Avatar" class="profile-avatar">
+                        <div class="profile-level-badge">12</div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name">Անի Մանուկյան</h1>
+                        <div class="profile-meta">
+                            <span class="profile-badge">⭐ Առաջադեմ</span>
+                            <span class="profile-badge">🏆 5 Մեդալ</span>
+                            <span class="profile-badge">📚 47 դաս</span>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">2,456</span>
+                                <span class="profile-stat-label">Աստղեր</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">89</span>
+                                <span class="profile-stat-label">Օր շարք</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">12</span>
+                                <span class="profile-stat-label">Հերոսներ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <a href="settings.html" class="profile-btn">⚙️ Կարգավորումներ</a>
+                        <a href="share.html" class="profile-btn profile-btn-outline">🔗 Կիսվել</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speedometer & Daily Goals -->
+        <section class="speedometer-section">
+            <div class="container">
+                <div class="speedometer-container">
+                    <div class="speedometer">
+                        <svg class="speedometer-svg" viewBox="0 0 200 110">
+                            <defs>
+                                <linearGradient id="speedometerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#667eea"/>
+                                    <stop offset="100%" style="stop-color:#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="speedometer-bg" d="M 20 100 A 80 80 0 0 1 180 100"/>
+                            <path class="speedometer-fill" d="M 20 100 A 80 80 0 0 1 180 100" id="speedometerFill"/>
+                        </svg>
+                        <div class="speedometer-value">75%</div>
+                        <div class="speedometer-label">Օրական նպատակ</div>
+                    </div>
+                    
+                    <div class="daily-goals">
+                        <div class="goal-item">
+                            <div class="goal-icon">⏱️</div>
+                            <div class="goal-info">
+                                <span class="goal-value">45 րոպե</span>
+                                <span class="goal-label">Ընդհանուր ժամանակ</span>
+                                <div class="goal-progress">
+                                    <div class="goal-progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="goal-item">
+                            <div class="goal-icon">📚</div>
+                            <div class="goal-info">
+                                <span class="goal-value">3 դաս</span>
+                                <span class="goal-label">Ավարտված դասեր</span>
+                                <div class="goal-progress">
+                                    <div class="goal-progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="goal-item">
+                            <div class="goal-icon">🎯</div>
+                            <div class="goal-info">
+                                <span class="goal-value">85%</span>
+                                <span class="goal-label">Ճշգրտություն</span>
+                                <div class="goal-progress">
+                                    <div class="goal-progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Navigation -->
+        <section class="tabs-section">
+            <div class="container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="progress">📊 Առաջադիմություն</button>
+                    <button class="tab-btn" data-tab="achievements">🏆 Մրցանակներ <span class="badge-count">12</span></button>
+                    <button class="tab-btn" data-tab="hero-cards">🦸 Հերոսներ</button>
+                    <button class="tab-btn" data-tab="certificates">📜 Վկայականներ</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Contents -->
+        <section class="section">
+            <div class="container">
+                <!-- Progress Tab -->
+                <div class="tab-content active" id="progress">
+                    <div class="progress-grid">
+                        <div class="progress-chart">
+                            <div class="chart-header">
+                                <h3 class="chart-title">Առաջադիմության գրաֆիկ</h3>
+                                <div class="chart-filters">
+                                    <button class="chart-filter active">Շաբաթ</button>
+                                    <button class="chart-filter">Ամիս</button>
+                                    <button class="chart-filter">Տարի</button>
+                                </div>
+                            </div>
+                            <div class="activity-chart">
+                                <div class="chart-placeholder">
+                                    <span>📈</span>
+                                    <span>Առաջադիմության գրաֆիկը կցուցադրվի այստեղ</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-heatmap">
+                            <div class="calendar-header">
+                                <h3 class="chart-title">Ակտիվության օրացույց</h3>
+                                <div class="calendar-nav">
+                                    <button class="calendar-btn">←</button>
+                                    <span class="calendar-title">Հունվար 2026</span>
+                                    <button class="calendar-btn">→</button>
+                                </div>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-day-header">Երկ</div>
+                                <div class="calendar-day-header">Երք</div>
+                                <div class="calendar-day-header">Չրք</div>
+                                <div class="calendar-day-header">Հնգ</div>
+                                <div class="calendar-day-header">Ուրբ</div>
+                                <div class="calendar-day-header">Շբթ</div>
+                                <div class="calendar-day-header">Կիր</div>
+                                
+                                <div class="calendar-day empty"></div>
+                                <div class="calendar-day empty"></div>
+                                <div class="calendar-day level-4">1</div>
+                                <div class="calendar-day level-3">2</div>
+                                <div class="calendar-day level-4">3</div>
+                                <div class="calendar-day level-2">4</div>
+                                <div class="calendar-day level-0">5</div>
+                                <div class="calendar-day level-3">6</div>
+                                <div class="calendar-day level-4">7</div>
+                                <div class="calendar-day level-4">8</div>
+                                <div class="calendar-day level-2">9</div>
+                                <div class="calendar-day level-3">10</div>
+                                <div class="calendar-day level-0">11</div>
+                                <div class="calendar-day level-0">12</div>
+                                <div class="calendar-day level-4">13</div>
+                                <div class="calendar-day level-3">14</div>
+                                <div class="calendar-day level-4">15</div>
+                                <div class="calendar-day level-4">16</div>
+                                <div class="calendar-day level-2">17</div>
+                                <div class="calendar-day level-3">18</div>
+                                <div class="calendar-day level-4">19</div>
+                                <div class="calendar-day level-3">20</div>
+                                <div class="calendar-day level-4">21</div>
+                                <div class="calendar-day level-2">22</div>
+                                <div class="calendar-day level-1">23</div>
+                                <div class="calendar-day level-3">24</div>
+                                <div class="calendar-day level-4">25</div>
+                                <div class="calendar-day level-4">26</div>
+                                <div class="calendar-day level-3">27</div>
+                                <div class="calendar-day level-4">28</div>
+                                <div class="calendar-day level-3">29</div>
+                                <div class="calendar-day level-4">30</div>
+                                <div class="calendar-day level-4">31</div>
+                            </div>
+                            <div class="calendar-legend">
+                                <span>Նվազագույն</span>
+                                <div class="legend-items">
+                                    <div class="legend-item level-0"></div>
+                                    <div class="legend-item level-1"></div>
+                                    <div class="legend-item level-2"></div>
+                                    <div class="legend-item level-3"></div>
+                                    <div class="legend-item level-4"></div>
+                                </div>
+                                <span>Առավելագույն</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements Tab -->
+                <div class="tab-content" id="achievements">
+                    <h2 class="section-title" style="margin-bottom: var(--space-xl);">Մրցանակներ և նվաճումներ</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 100%"></div>
+                                🔥
+                            </div>
+                            <h3 class="achievement-title">Հենց սկսած</h3>
+                            <p class="achievement-description">Ավարտիր առաջին դասը</p>
+                            <span class="achievement-points">⭐ +10</span>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 100%"></div>
+                                📚
+                            </div>
+                            <h3 class="achievement-title">Ուսանող</h3>
+                            <p class="achievement-description">Ավարտիր 10 դաս</p>
+                            <span class="achievement-points">⭐ +50</span>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 100%"></div>
+                                ⭐
+                            </div>
+                            <h3 class="achievement-title">Աստղահավաք</h3>
+                            <p class="achievement-description">Հավաքիր 1000 աստղ</p>
+                            <span class="achievement-points">⭐ +100</span>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 70%"></div>
+                                🏆
+                            </div>
+                            <h3 class="achievement-title">Չեմպիոն</h3>
+                            <p class="achievement-description">Զբաղեցիր 1-ին տեղը վարկանիշում</p>
+                            <span class="achievement-points">⭐ +500</span>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 0%"></div>
+                                🔒
+                            </div>
+                            <h3 class="achievement-title">Հերոսահավաք</h3>
+                            <p class="achievement-description">Հավաքիր 20 հերոսի քարտ</p>
+                            <span class="achievement-points">⭐ +200</span>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">
+                                <div class="achievement-progress-ring" style="--progress: 30%"></div>
+                                🎯
+                            </div>
+                            <h3 class="achievement-title">Ճշգրիտ</h3>
+                            <p class="achievement-description">Ավարտիր 50 դաս 100% ճշգրտությամբ</p>
+                            <span class="achievement-points">⭐ +150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Cards Tab -->
+                <div class="tab-content" id="hero-cards">
+                    <h2 class="section-title" style="margin-bottom: var(--space-xl);">Հավաքածու - 12/100</h2>
+                    <div class="hero-cards-grid">
+                        <div class="hero-card-item">
+                            <span class="hero-card-rarity common">Common</span>
+                            <div class="hero-card-image">🦁</div>
+                            <div class="hero-card-info">
+                                <h3 class="hero-card-name">Առյուծ Արտաշես</h3>
+                                <p class="hero-card-character">Հայոց արքա</p>
+                                <div class="hero-card-stats">
+                                    <span class="hero-card-stat">⚔️ 75</span>
+                                    <span class="hero-card-stat">🛡️ 80</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-card-item">
+                            <span class="hero-card-rarity rare">Rare</span>
+                            <div class="hero-card-image">⚔️</div>
+                            <div class="hero-card-info">
+                                <h3 class="hero-card-name">Վարդան Մամիկոնյան</h3>
+                                <p class="hero-card-character">Սպարապետ</p>
+                                <div class="hero-card-stats">
+                                    <span class="hero-card-stat">⚔️ 90</span>
+                                    <span class="hero-card-stat">🛡️ 70</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-card-item">
+                            <span class="hero-card-rarity epic">Epic</span>
+                            <div class="hero-card-image">📜</div>
+                            <div class="hero-card-info">
+                                <h3 class="hero-card-name">Մեսրոպ Մաշտոց</h3>
+                                <p class="hero-card-character">Վարդապետ</p>
+                                <div class="hero-card-stats">
+                                    <span class="hero-card-stat">⚔️ 40</span>
+                                    <span class="hero-card-stat">🛡️ 95</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-card-item">
+                            <span class="hero-card-rarity legendary">Legendary</span>
+                            <div class="hero-card-image">🦅</div>
+                            <div class="hero-card-info">
+                                <h3 class="hero-card-name">Տիգրան Մեծ</h3>
+                                <p class="hero-card-character">Արևելքի արքա</p>
+                                <div class="hero-card-stats">
+                                    <span class="hero-card-stat">⚔️ 100</span>
+                                    <span class="hero-card-stat">🛡️ 100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates Tab -->
+                <div class="tab-content" id="certificates">
+                    <h2 class="section-title" style="margin-bottom: var(--space-xl);">Վկայականներ - 5</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">🥇</div>
+                            <h3 class="achievement-title">Մաթեմատիկայի վկայական</h3>
+                            <p class="achievement-description">Ավարտված 20 մաթեմատիկական դաս</p>
+                            <span class="achievement-points">📅 15.01.2026</span>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon">🥈</div>
+                            <h3 class="achievement-title">Տրամաբանության վկայական</h3>
+                            <p class="achievement-description">Ավարտված 15 տրամաբանական դաս</p>
+                            <span class="achievement-points">📅 10.01.2026</span>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon">🥉</div>
+                            <h3 class="achievement-title">Պատմության վկայական</h3>
+                            <p class="achievement-description">Ավարտված 10 պատմական դաս</p>
+                            <span class="achievement-points">📅 05.01.2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="logo-icon">🧠</div>
+                            <span>Brainik</span>
+                        </div>
+                        <p class="footer-description">Կրթական հարթակ 2-15 տարեկան երեխաների համար։</p>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Հարթակ</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html" class="footer-link">Գլխավոր</a></li>
+                            <li><a href="puzzles.html" class="footer-link">Հանելուկներ</a></li>
+                            <li><a href="stats.html" class="footer-link">Վիճակագրություն</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik. Բոլոր իրավունքները պաշտպանված են։</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked tab
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Animate speedometer on load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('speedometerFill').style.strokeDashoffset = '62';
+            }, 500);
+        });
+    </script>
+    <script src="js/auth-check.js"></script>
+    <script>
+        // Auth check for Stats page
+        AuthCheck.init('My Stats');
+    </script>
+</body>
+</html>

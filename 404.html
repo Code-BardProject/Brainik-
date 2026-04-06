@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Էջը չի գտնվել - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+            padding: var(--space-lg);
+        }
+        
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-family: 'Fredoka One', cursive;
+            font-size: 8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .error-illustration {
+            font-size: 6rem;
+            margin-bottom: var(--space-lg);
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        .error-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: var(--text-2xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .error-message {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .error-suggestions {
+            margin-top: var(--space-2xl);
+            padding: var(--space-xl);
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 20px var(--shadow-soft);
+        }
+        
+        .error-suggestions h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+        
+        .suggestion-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+        }
+        
+        .suggestion-link {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            color: var(--primary-purple);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+        
+        .suggestion-link:hover {
+            background: var(--primary-purple);
+            color: white;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-illustration {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-container">
+            <div class="error-illustration">🤔</div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Ուպս! Էջը չի գտնվել</h1>
+            <p class="error-message">
+                Կարծես թե փնտրած էջը կորել է։ Միգուցե այն տեղափոխվել է կամ ջնջվել։
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">🏠 Գլխավոր էջ</a>
+                <a href="puzzles.html" class="btn btn-secondary">🧩 Հանելուկներ</a>
+                <button onclick="history.back()" class="btn btn-ghost">← Հետ գնալ</button>
+            </div>
+            
+            <div class="error-suggestions">
+                <h3>Փորձիր այս հղումները՝</h3>
+                <div class="suggestion-links">
+                    <a href="stats.html" class="suggestion-link">📊 Վիճակագրություն</a>
+                    <a href="ranking.html" class="suggestion-link">🏆 Վարկանիշ</a>
+                    <a href="hero-cards.html" class="suggestion-link">🦸 Հերոսներ</a>
+                    <a href="settings.html" class="suggestion-link">⚙️ Կարգավորումներ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

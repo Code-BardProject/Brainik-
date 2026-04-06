@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainik - Կրթական Հարթակ | Educational Platform</title>
+    <meta name="description" content="Brainik - Ինտերակտիվ կրթական հարթակ 2-15 տարեկան երեխաների համար">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="puzzles.html" class="nav-link">Puzzles</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                        <li><a href="ranking.html" class="nav-link">Ranking</a></li>
+                        <li><a href="hero-cards.html" class="nav-link">Hero Cards</a></li>
+                    </ul>
+                    
+                    <div class="user-actions">
+                        <div class="lang-selector">
+                            <button class="lang-btn">
+                                <span>🇦🇲</span>
+                                <span>HY</span>
+                            </button>
+                            <div class="lang-dropdown">
+                                <div class="lang-option active">
+                                    <span>🇦🇲</span>
+                                    <span>Հայերեն</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span>🇬🇧</span>
+                                    <span>English</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span>🇷🇺</span>
+                                    <span>Русский</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="student-login.html" class="btn btn-primary">Մուտք</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content" data-animate="left">
+                        <div class="hero-badge">
+                            <span>🎯</span>
+                            <span>Ուսուցում խաղի միջոցով</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Սովորիր <span class="gradient-text">հետաքրքիր</span><br>
+                            և <span class="gradient-text">վաստակիր</span> մրցանակներ
+                        </h1>
+                        <p class="hero-description">
+                            Brainik-ը ինտերակտիվ կրթական հարթակ է 2-15 տարեկան երեխաների համար։ 
+                            Սովորիր խաղալով, հավաքիր աստղեր և բացահայտիր նոր հերոսներ։
+                        </p>
+                        <div class="hero-actions">
+                            <a href="puzzles.html" class="btn btn-primary">
+                                <span>Սկսել ուսումը</span>
+                                <span>→</span>
+                            </a>
+                            <a href="#age-groups" class="btn btn-secondary">
+                                <span>Ընտրել տարիքային խումբ</span>
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">50K+</div>
+                                <div class="hero-stat-label">Ուսանողներ</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">1000+</div>
+                                <div class="hero-stat-label">Հանելուկներ</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">100+</div>
+                                <div class="hero-stat-label">Հերոսներ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual" data-animate="right">
+                        <div class="hero-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="Happy child learning" class="hero-image">
+                        </div>
+                        <div class="hero-float-card hero-float-card-1">
+                            <div class="float-card-icon">🌟</div>
+                            <div class="float-card-text">+50 աստղ</div>
+                            <div class="float-card-subtext">Այսօր վաստակած</div>
+                        </div>
+                        <div class="hero-float-card hero-float-card-2">
+                            <div class="float-card-icon">🏆</div>
+                            <div class="float-card-text">3-րդ տեղ</div>
+                            <div class="float-card-subtext">Վարկանիշում</div>
+                        </div>
+                        <div class="hero-float-card hero-float-card-3">
+                            <div class="float-card-icon">📚</div>
+                            <div class="float-card-text">5 դաս</div>
+                            <div class="float-card-subtext">Ավարտված</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Age Groups Section -->
+        <section class="section age-groups" id="age-groups">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="section-subtitle">
+                        <span>👶</span>
+                        <span>Տարիքային խմբեր</span>
+                    </div>
+                    <h2 class="section-title">Ընտրիր քո <span class="gradient-text">տարիքային խումբը</span></h2>
+                    <p class="section-description">
+                        Մենք առաջարկում ենք անհատականացված բովանդակություն յուրաքանչյուր տարիքային խմբի համար
+                    </p>
+                </div>
+                <div class="age-grid">
+                    <div class="age-card age-2-3" data-animate="left">
+                        <div class="age-icon">🍼</div>
+                        <h3 class="age-title">2-3 տարեկան</h3>
+                        <p class="age-description">Նախախաղային բովանդակություն, ձայնավոր հրահանգներ, պարզ դիտողական առաջադրանքներ</p>
+                        <div class="age-topics">
+                            <span class="age-topic">Գույներ</span>
+                            <span class="age-topic">Ձայներ</span>
+                            <span class="age-topic">Ֆորմաներ</span>
+                        </div>
+                    </div>
+                    <div class="age-card age-4-6" data-animate>
+                        <div class="age-icon">🎨</div>
+                        <h3 class="age-title">4-6 տարեկան</h3>
+                        <p class="age-description">Տրամաբանություն, հաշվարկ, հիշողություն, ուշադրություն</p>
+                        <div class="age-topics">
+                            <span class="age-topic">Տրամաբանություն</span>
+                            <span class="age-topic">Մաթեմատիկա</span>
+                            <span class="age-topic">Հիշողություն</span>
+                        </div>
+                    </div>
+                    <div class="age-card age-7-9" data-animate>
+                        <div class="age-icon">🚀</div>
+                        <h3 class="age-title">7-9 տարեկան</h3>
+                        <p class="age-description">Համակարգված մտածողություն, առաջադեմ մաթեմատիկա, գիտություն</p>
+                        <div class="age-topics">
+                            <span class="age-topic">Մաթեմատիկա</span>
+                            <span class="age-topic">Գիտություն</span>
+                            <span class="age-topic">Աշխարհագրություն</span>
+                        </div>
+                    </div>
+                    <div class="age-card age-10-plus" data-animate="right">
+                        <div class="age-icon">🎓</div>
+                        <h3 class="age-title">10+ տարեկան</h3>
+                        <p class="age-description">Բարդ հանելուկներ, ծրագրավորման հիմունքներ, վիկտորինաներ</p>
+                        <div class="age-topics">
+                            <span class="age-topic">Ծրագրավորում</span>
+                            <span class="age-topic">Ֆիզիկա</span>
+                            <span class="age-topic">Պատմություն</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle Categories -->
+        <section class="section puzzle-categories">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="section-subtitle">
+                        <span>🧩</span>
+                        <span>Հանելուկներ</span>
+                    </div>
+                    <h2 class="section-title">Ընտրիր <span class="gradient-text">քեզ հետաքրքրող</span> թեման</h2>
+                    <p class="section-description">
+                        Բազմազան հանելուկներ և վարժություններ՝ տրամաբանությունից մինչև պատմություն
+                    </p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card" data-animate="left">
+                        <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?w=600&q=80" alt="Logic puzzles" class="category-image">
+                        <div class="category-overlay">
+                            <span class="badge badge-age-7-9 category-badge">150+</span>
+                            <h3 class="category-title">Տրամաբանություն</h3>
+                            <p class="category-count">Մաթեմատիկական և տրամաբանական հանելուկներ</p>
+                        </div>
+                    </div>
+                    <div class="category-card" data-animate>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="World exploration" class="category-image">
+                        <div class="category-overlay">
+                            <span class="badge badge-age-4-6 category-badge">200+</span>
+                            <h3 class="category-title">Հայտնագործիր աշխարհը</h3>
+                            <p class="category-count">Աշխարհագրություն, կենդանիներ, բույսեր</p>
+                        </div>
+                    </div>
+                    <div class="category-card" data-animate="right">
+                        <img src="https://images.unsplash.com/photo-1564399580075-5dfe19c205f3?w=600&q=80" alt="Armenian history" class="category-image">
+                        <div class="category-overlay">
+                            <span class="badge badge-age-10-plus category-badge">100+</span>
+                            <h3 class="category-title">Հայկական Պատմություն</h3>
+                            <p class="category-count">Հայ ժողովրդի պատմություն և մշակույթ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="section-subtitle">
+                        <span>✨</span>
+                        <span>Առավելություններ</span>
+                    </div>
+                    <h2 class="section-title">Ինչու ենք <span class="gradient-text">հատուկ</span></h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card" data-animate="left">
+                        <div class="feature-icon">🎮</div>
+                        <h3 class="feature-title">Gamification</h3>
+                        <p class="feature-description">Աստղեր, մեդալներ, հերոսների քարտեր և վարկանիշային աղյուսակներ</p>
+                    </div>
+                    <div class="feature-card" data-animate>
+                        <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                        <h3 class="feature-title">Ծնողական հսկողություն</h3>
+                        <p class="feature-description">Հետևեք ձեր երեխայի առաջընթացին և սահմանեք օրական նպատակներ</p>
+                    </div>
+                    <div class="feature-card" data-animate="right">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="feature-title">Միացիր ցանկացած սարքից</h3>
+                        <p class="feature-description">Հասանելի է բոլոր սարքերից՝ համակարգիչ, պլանշետ, հեռախոս</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Cards Section -->
+        <section class="section hero-cards-section">
+            <div class="hero-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="section-subtitle">
+                        <span>🏆</span>
+                        <span>Հերոսներ</span>
+                    </div>
+                    <h2 class="section-title">Հավաքիր <span>Հերոսների Քարտերը</span></h2>
+                    <p class="section-description">
+                        Բացահայտիր պատմական և առասպելական հերոսների քարտերը և սովորիր նրանց պատմությունները
+                    </p>
+                </div>
+                <div class="hero-cards-grid">
+                    <div class="hero-card" data-animate="left">
+                        <div class="hero-card-image">🦁</div>
+                        <h3 class="hero-card-title">Առյուծ Արտաշես</h3>
+                        <p class="hero-card-description">Հայոց արքա, պ courageous առյուծ</p>
+                    </div>
+                    <div class="hero-card" data-animate>
+                        <div class="hero-card-image">⚔️</div>
+                        <h3 class="hero-card-title">Վարդան Մամիկոնյան</h3>
+                        <p class="hero-card-description">Ավարայրի հերոս սպարապետ</p>
+                    </div>
+                    <div class="hero-card" data-animate>
+                        <div class="hero-card-image">📜</div>
+                        <h3 class="hero-card-title">Մեսրոպ Մաշտոց</h3>
+                        <p class="hero-card-description">Հայոց գրերի հայր</p>
+                    </div>
+                    <div class="hero-card" data-animate="right">
+                        <div class="hero-card-image">🦅</div>
+                        <h3 class="hero-card-title">Տիգրան Մեծ</h3>
+                        <p class="hero-card-description">Արևելքի արքա</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="section-subtitle">
+                        <span>💬</span>
+                        <span>Կարծիքներ</span>
+                    </div>
+                    <h2 class="section-title">Ինչ են <span class="gradient-text">ասում</span> մեր մասին</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card" data-animate="left">
+                        <span class="testimonial-quote">"</span>
+                        <p class="testimonial-text">
+                            Ավագ որդիս մեծ հետաքրքրությամբ է զբաղվում Brainik-ով։ Արդեն 3 ամիս է՝ ամեն օր անում է դասեր և զգալի առաջադիմում է գրանցել դպրոցում։
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ԱՄ</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Անի Մանուկյան</div>
+                                <div class="testimonial-role">ծնող</div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-animate>
+                        <span class="testimonial-quote">"</span>
+                        <p class="testimonial-text">
+                            Որպես ուսուցիչ, Brainik-ը ինձ հնարավորություն է տալիս հետևել աշակերտների առաջադիմությանը և անհատականացված առաջադրանքներ տալ։
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ԿՊ</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Կարեն Պետրոսյան</div>
+                                <div class="testimonial-role">ուսուցիչ</div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-animate="right">
+                        <span class="testimonial-quote">"</span>
+                        <p class="testimonial-text">
+                            Շատ եմ սիրում Brainik-ը։ Հատկապես դուր է գալիս հերոսների քարտերը հավաքելը և ընկերների հետ մրցելը վարկանիշում։
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ԼԳ</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Լևոն Գրիգորյան</div>
+                                <div class="testimonial-role">աշակերտ, 9 տարեկան</div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="cta-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div data-animate="scale">
+                    <h2 class="cta-title">Պատրաստ ես սովորելու՞</h2>
+                    <p class="cta-description">
+                        Միացիր 50,000+ երեխաների և ծնողների, ովքեր արդեն օգտվում են Brainik-ից
+                    </p>
+                    <div class="cta-actions">
+                        <a href="login.html" class="cta-btn">Սկսել ուսումը</a>
+                        <a href="puzzles.html" class="cta-btn cta-btn-secondary">Փորձել դեմո</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="logo-icon">🧠</div>
+                            <span>Brainik</span>
+                        </div>
+                        <p class="footer-description">
+                            Կրթական հարթակ 2-15 տարեկան երեխաների համար։ Սովորիր խաղալով, զարգացրու քո ունակությունները։
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Facebook">f</a>
+                            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                            <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                            <a href="#" class="social-link" aria-label="Telegram">✈</a>
+                        </div>
+                        <div class="footer-apps">
+                            <a href="#" class="app-btn">
+                                <span class="app-btn-icon">🍎</span>
+                                <span class="app-btn-text">
+                                    <span class="app-btn-small">Download on the</span>
+                                    <span class="app-btn-large">App Store</span>
+                                </span>
+                            </a>
+                            <a href="#" class="app-btn">
+                                <span class="app-btn-icon">▶</span>
+                                <span class="app-btn-text">
+                                    <span class="app-btn-small">Get it on</span>
+                                    <span class="app-btn-large">Google Play</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Հարթակ</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html" class="footer-link">Գլխավոր</a></li>
+                            <li><a href="puzzles.html" class="footer-link">Հանելուկներ</a></li>
+                            <li><a href="stats.html" class="footer-link">Անձնական արխիվ</a></li>
+                            <li><a href="ranking.html" class="footer-link">Վարկանիշ</a></li>
+                            <li><a href="#" class="footer-link">Գնագրում</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Օգնություն</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Հաճախակի հարցեր</a></li>
+                            <li><a href="#" class="footer-link">Օգտագործման ուղեցույց</a></li>
+                            <li><a href="#" class="footer-link">Կապ մեզ հետ</a></li>
+                            <li><a href="#" class="footer-link">Աջակցություն</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-title">Կապ</h4>
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <div class="footer-contact-icon">📧</div>
+                                <span>info@brainik.com</span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <div class="footer-contact-icon">📞</div>
+                                <span>+374 99 999 999</span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <div class="footer-contact-icon">📍</div>
+                                <span>Երևան, Հայաստան</span>
+                            </div>
+                        </div>
+                        <div class="footer-newsletter">
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Ձեր էլ. փոստը" class="newsletter-input">
+                                <button type="submit" class="newsletter-btn">Բաժանորդագրվել</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik. Բոլոր իրավունքները պաշտպանված են։</p>
+                    <div class="footer-legal">
+                        <a href="#" class="footer-legal-link">Գաղտնիության քաղաքականություն</a>
+                        <a href="#" class="footer-legal-link">Օգտագործման պայմաններ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

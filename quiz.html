@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Վիկտորինա - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/game.css">
+    <script src="js/i18n.js"></script>
+    <script src="js/games-enhanced.js"></script>
+    <style>
+        .quiz-container {
+            max-width: 700px;
+            width: 100%;
+        }
+        
+        .quiz-progress {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .question-counter {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .progress-dots {
+            display: flex;
+            gap: var(--space-xs);
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            transition: all var(--transition-fast);
+        }
+        
+        .progress-dot.correct {
+            background: var(--secondary-green);
+        }
+        
+        .progress-dot.wrong {
+            background: var(--secondary-red);
+        }
+        
+        .progress-dot.current {
+            background: var(--primary-purple);
+            transform: scale(1.3);
+        }
+        
+        .question-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: 0 4px 20px var(--shadow-soft);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .question-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .question-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: var(--text-xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.5;
+        }
+        
+        .answer-options {
+            display: grid;
+            gap: var(--space-md);
+        }
+        
+        .answer-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: var(--bg-secondary);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+        }
+        
+        .answer-option:hover {
+            border-color: var(--primary-purple);
+            background: var(--bg-tertiary);
+        }
+        
+        .answer-option.selected {
+            border-color: var(--primary-purple);
+            background: var(--bg-tertiary);
+        }
+        
+        .answer-option.correct {
+            border-color: var(--secondary-green);
+            background: rgba(107, 203, 119, 0.1);
+        }
+        
+        .answer-option.wrong {
+            border-color: var(--secondary-red);
+            background: rgba(255, 107, 107, 0.1);
+        }
+        
+        .answer-letter {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .answer-text {
+            font-size: var(--text-base);
+            color: var(--text-primary);
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-md);
+        }
+        
+        .results-card {
+            text-align: center;
+            padding: var(--space-3xl);
+        }
+        
+        .results-score {
+            font-family: 'Fredoka One', cursive;
+            font-size: var(--text-5xl);
+            color: var(--primary-purple);
+            margin-bottom: var(--space-md);
+        }
+        
+        .results-message {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .results-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .result-stat {
+            padding: var(--space-md);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+        }
+        
+        .result-stat-value {
+            font-family: 'Fredoka One', cursive;
+            font-size: var(--text-2xl);
+            color: var(--primary-purple);
+        }
+        
+        .result-stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 600px) {
+            .question-card {
+                padding: var(--space-lg);
+            }
+            
+            .question-text {
+                font-size: var(--text-lg);
+            }
+            
+            .results-breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="game-page">
+    <div class="game-container">
+        <div class="game-header">
+            <a href="puzzles.html" class="game-back">← Դուրս գալ</a>
+            <div class="game-stats">
+                <span class="game-stat">⭐ <span id="stars">0</span></span>
+                <span class="game-stat">⏱️ <span id="timer">00:00</span></span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="quiz-container" id="quizContainer">
+                <!-- Quiz content generated by JS -->
+            </div>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: 'Որն է Հայաստանի մայրաքաղաքը?',
+                image: '🏛️',
+                options: ['Գյումրի', 'Երևան', 'Վանաձոր', 'Դիլիջան'],
+                correct: 1
+            },
+            {
+                question: 'Քանի գույն ունի ծիածանը?',
+                image: '🌈',
+                options: ['5', '6', '7', '8'],
+                correct: 2
+            },
+            {
+                question: 'Որ թիվն է ամենամեծը?',
+                image: '🔢',
+                options: ['99', '100', '101', '110'],
+                correct: 3
+            },
+            {
+                question: 'Քանի օր ունի մեկ տարին?',
+                image: '📅',
+                options: ['364', '365', '366', '367'],
+                correct: 1
+            },
+            {
+                question: 'Որ կենդանին է թռչում?',
+                image: '🐦',
+                options: ['Շուն', 'Կատու', 'Թռչուն', 'Ձուկ'],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let stars = 0;
+        let answered = [];
+        let startTime;
+        let timerInterval;
+        let answeredCurrent = false;
+
+        function initQuiz() {
+            startTime = Date.now();
+            startTimer();
+            renderQuestion();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60).toString().padStart(2, '0');
+                const seconds = (elapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer').textContent = `${minutes}:${seconds}`;
+            }, 1000);
+        }
+
+        function renderQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizData[currentQuestion];
+            
+            let progressHTML = '<div class="quiz-progress">';
+            progressHTML += '<span class="question-counter">Հարց ' + (currentQuestion + 1) + '/' + quizData.length + '</span>';
+            progressHTML += '<div class="progress-dots">';
+            
+            for (let i = 0; i < quizData.length; i++) {
+                let dotClass = 'progress-dot';
+                if (i < currentQuestion) {
+                    dotClass += answered[i] ? ' correct' : ' wrong';
+                } else if (i === currentQuestion) {
+                    dotClass += ' current';
+                }
+                progressHTML += `<div class="${dotClass}"></div>`;
+            }
+            
+            progressHTML += '</div></div>';
+            
+            let optionsHTML = '';
+            question.options.forEach((option, index) => {
+                const letter = String.fromCharCode(65 + index);
+                optionsHTML += `
+                    <button class="answer-option" data-index="${index}" onclick="selectAnswer(${index})">
+                        <span class="answer-letter">${letter}</span>
+                        <span class="answer-text">${option}</span>
+                    </button>
+                `;
+            });
+            
+            container.innerHTML = `
+                ${progressHTML}
+                <div class="question-card">
+                    <div style="font-size: 6rem; text-align: center; margin-bottom: 1rem;">${question.image}</div>
+                    <h3 class="question-text">${question.question}</h3>
+                    <div class="answer-options">
+                        ${optionsHTML}
+                    </div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn btn-ghost" onclick="prevQuestion()" ${currentQuestion === 0 ? 'disabled' : ''}>← Նախորդ</button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Հաջորդ →</button>
+                </div>
+            `;
+            
+            answeredCurrent = false;
+        }
+
+        function selectAnswer(index) {
+            if (answeredCurrent) return;
+            
+            const options = document.querySelectorAll('.answer-option');
+            const correct = quizData[currentQuestion].correct;
+            
+            options[index].classList.add('selected');
+            answeredCurrent = true;
+            
+            if (index === correct) {
+                options[index].classList.add('correct');
+                score++;
+                stars += 3;
+                document.getElementById('stars').textContent = stars;
+                showFeedback('✓ Ճիշտ է! +3 աստղ', true);
+            } else {
+                options[index].classList.add('wrong');
+                options[correct].classList.add('correct');
+                showFeedback('✕ Ճիշտ պատասխանը՝ ' + quizData[currentQuestion].options[correct], false);
+            }
+            
+            answered[currentQuestion] = index === correct;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function showResults() {
+            clearInterval(timerInterval);
+            
+            const percentage = Math.round((score / quizData.length) * 100);
+            const time = document.getElementById('timer').textContent;
+            
+            let message = '';
+            if (percentage >= 90) message = 'Գերազանց! Դու շատ լավ գիտես!';
+            else if (percentage >= 70) message = 'Շատ լավ! Շարունակիր սովորել!';
+            else if (percentage >= 50) message = 'Լավ է! Տեղ կա առաջադիմելու!';
+            else message = 'Փորձիր կրկին! Սովորելը պահանջում է ժամանակ։';
+            
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="question-card results-card">
+                    <div style="font-size: 5rem; margin-bottom: 1rem;">${percentage >= 70 ? '🏆' : '📚'}</div>
+                    <div class="results-score">${percentage}%</div>
+                    <p class="results-message">${message}</p>
+                    <div class="results-breakdown">
+                        <div class="result-stat">
+                            <div class="result-stat-value">${score}</div>
+                            <div class="result-stat-label">Ճիշտ</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-value">${quizData.length - score}</div>
+                            <div class="result-stat-label">Սխալ</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-value">${time}</div>
+                            <div class="result-stat-label">Ժամանակ</div>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-primary" onclick="restartQuiz()">Փորձել կրկին</button>
+                        <a href="puzzles.html" class="btn btn-secondary">Այլ առաջադրանքներ</a>
+                    </div>
+                </div>
+            `;
+            
+            if (percentage >= 70) {
+                createConfetti();
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            stars = 0;
+            answered = [];
+            document.getElementById('stars').textContent = stars;
+            initQuiz();
+        }
+
+        function showFeedback(message, isCorrect) {
+            const feedback = document.getElementById('feedback');
+            feedback.textContent = message;
+            feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'wrong');
+            feedback.style.opacity = '1';
+            
+            setTimeout(() => {
+                feedback.style.opacity = '0';
+            }, 2000);
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 12px;
+                    height: 12px;
+                    background: ${['#ffd93d', '#ff6b6b', '#4ecdc4', '#6bcb77', '#a855f7'][Math.floor(Math.random() * 5)]};
+                    left: ${Math.random() * 100}vw;
+                    top: -10px;
+                    border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                    animation: confetti-fall 2s ease-out forwards;
+                    z-index: 1000;
+                `;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 2000);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti-fall {
+                to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        initQuiz();
+    </script>
+</body>
+</html>

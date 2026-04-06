@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հերոսների հավաքածու - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/hero-cards.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="puzzles.html" class="nav-link">Puzzles</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                        <li><a href="hero-cards.html" class="nav-link active">Hero Cards</a></li>
+                    </ul>
+                    <div class="user-actions">
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero-cards-page">
+        <section class="page-header">
+            <div class="page-header-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">🦸 Հերոսների Հավաքածու</h1>
+                    <p class="page-description">Հավաքիր պատմական և առասպելական հերոսների քարտերը</p>
+                    <div class="collection-progress">
+                        <div class="progress-info">
+                            <span>Քո հավաքածուն</span>
+                            <span class="progress-fraction">12 / 100</span>
+                        </div>
+                        <div class="progress-bar-large">
+                            <div class="progress-fill-large" style="width: 12%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="rarity-filters">
+                    <button class="rarity-btn active" data-filter="all">Բոլորը</button>
+                    <button class="rarity-btn common" data-filter="common">Common</button>
+                    <button class="rarity-btn rare" data-filter="rare">Rare</button>
+                    <button class="rarity-btn epic" data-filter="epic">Epic</button>
+                    <button class="rarity-btn legendary" data-filter="legendary">Legendary</button>
+                </div>
+
+                <div class="hero-cards-full-grid">
+                    <div class="hero-card-full unlocked" data-rarity="common">
+                        <div class="card-frame">
+                            <span class="rarity-badge common">Common</span>
+                            <div class="hero-image-large">🦁</div>
+                            <div class="hero-info-large">
+                                <h3>Առյուծ Արտաշես</h3>
+                                <p>Հայոց արքա</p>
+                            </div>
+                            <div class="hero-stats-bar">
+                                <div class="stat-bar">
+                                    <span>⚔️</span>
+                                    <div class="stat-fill" style="width: 75%"></div>
+                                    <span>75</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>🛡️</span>
+                                    <div class="stat-fill" style="width: 80%"></div>
+                                    <span>80</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>⚡</span>
+                                    <div class="stat-fill" style="width: 60%"></div>
+                                    <span>60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-full unlocked" data-rarity="rare">
+                        <div class="card-frame">
+                            <span class="rarity-badge rare">Rare</span>
+                            <div class="hero-image-large">⚔️</div>
+                            <div class="hero-info-large">
+                                <h3>Վարդան Մամիկոնյան</h3>
+                                <p>Սպարապետ</p>
+                            </div>
+                            <div class="hero-stats-bar">
+                                <div class="stat-bar">
+                                    <span>⚔️</span>
+                                    <div class="stat-fill" style="width: 90%"></div>
+                                    <span>90</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>🛡️</span>
+                                    <div class="stat-fill" style="width: 70%"></div>
+                                    <span>70</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>⚡</span>
+                                    <div class="stat-fill" style="width: 85%"></div>
+                                    <span>85</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-full unlocked" data-rarity="epic">
+                        <div class="card-frame">
+                            <span class="rarity-badge epic">Epic</span>
+                            <div class="hero-image-large">📜</div>
+                            <div class="hero-info-large">
+                                <h3>Մեսրոպ Մաշտոց</h3>
+                                <p>Վարդապետ</p>
+                            </div>
+                            <div class="hero-stats-bar">
+                                <div class="stat-bar">
+                                    <span>⚔️</span>
+                                    <div class="stat-fill" style="width: 40%"></div>
+                                    <span>40</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>🛡️</span>
+                                    <div class="stat-fill" style="width: 95%"></div>
+                                    <span>95</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>⚡</span>
+                                    <div class="stat-fill" style="width: 100%"></div>
+                                    <span>100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-full unlocked" data-rarity="legendary">
+                        <div class="card-frame legendary-frame">
+                            <span class="rarity-badge legendary">Legendary</span>
+                            <div class="hero-image-large">🦅</div>
+                            <div class="hero-info-large">
+                                <h3>Տիգրան Մեծ</h3>
+                                <p>Արևելքի արքա</p>
+                            </div>
+                            <div class="hero-stats-bar">
+                                <div class="stat-bar">
+                                    <span>⚔️</span>
+                                    <div class="stat-fill legendary-fill" style="width: 100%"></div>
+                                    <span>100</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>🛡️</span>
+                                    <div class="stat-fill legendary-fill" style="width: 100%"></div>
+                                    <span>100</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <span>⚡</span>
+                                    <div class="stat-fill legendary-fill" style="width: 100%"></div>
+                                    <span>100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-full locked" data-rarity="legendary">
+                        <div class="card-frame locked-frame">
+                            <span class="rarity-badge locked-badge">🔒 Կողպված</span>
+                            <div class="hero-image-large locked-image">❓</div>
+                            <div class="unlock-requirements">
+                                <p>Պահանջվում է՝</p>
+                                <ul>
+                                    <li>⭐ 5,000 աստղ</li>
+                                    <li>🏆 Մակարդակ 20</li>
+                                    <li>📚 100 դաս</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-full locked" data-rarity="epic">
+                        <div class="card-frame locked-frame">
+                            <span class="rarity-badge locked-badge">🔒 Կողպված</span>
+                            <div class="hero-image-large locked-image">❓</div>
+                            <div class="unlock-requirements">
+                                <p>Պահանջվում է՝</p>
+                                <ul>
+                                    <li>⭐ 3,000 աստղ</li>
+                                    <li>🏆 Մակարդակ 15</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="logo-icon">🧠</div>
+                            <span>Brainik</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.rarity-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.rarity-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.hero-card-full').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-rarity') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="js/auth-check.js"></script>
+    <script>
+        // Auth check for Hero Cards page
+        AuthCheck.init('Hero Cards');
+    </script>
+</body>
+</html>

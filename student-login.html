@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Մուտք ուսանողների համար - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .student-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 26px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        
+        .password-wrapper {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        
+        .toggle-password:hover {
+            opacity: 1;
+        }
+        
+        .options-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .remember-me input {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+        }
+        
+        .forgot-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .social-btn:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .signup-text {
+            text-align: center;
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .signup-text a {
+            color: #667eea;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .other-roles {
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .other-roles-title {
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .role-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .role-link {
+            font-size: 14px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .role-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="student-icon">🎓</div>
+            <span class="role-badge">Ուսանող</span>
+        </div>
+        
+        <h1>Բարի վերադարձ!</h1>
+        <p class="subtitle">Մուտք գործիր քո հաշիվ</p>
+        
+        <form id="studentLoginForm" onsubmit="handleStudentLogin(event)">
+            <div class="form-group">
+                <label class="form-label">Էլ. փոստ</label>
+                <input type="email" class="form-input" id="email" placeholder="example@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Գաղտնաբառ</label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="password" placeholder="Ձեր գաղտնաբառը" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            
+            <div class="options-row">
+                <label class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <span>Հիշել ինձ</span>
+                </label>
+                <a href="forgot-password.html" class="forgot-link">Մոռացե՞լ ես</a>
+            </div>
+            
+            <button type="submit" class="btn-login">🔐 Մուտք գործել</button>
+        </form>
+        
+        <div class="divider">կամ</div>
+        
+        <div class="social-login">
+            <button class="social-btn" onclick="socialLogin('google')">🔍 Google</button>
+            <button class="social-btn" onclick="socialLogin('facebook')">📘 Facebook</button>
+        </div>
+        
+        <p class="signup-text">
+            Դեռ չունե՞ս հաշիվ <a href="student-signup.html">Գրանցվել →</a>
+        </p>
+        
+        <div class="other-roles">
+            <div class="other-roles-title">Այլ դերեր</div>
+            <div class="role-links">
+                <a href="teacher-login.html" class="role-link">👨‍🏫 Ուսուցիչ</a>
+                <a href="parent-login.html" class="role-link">👨‍👩‍👧 Ծնող</a>
+                <a href="admin-login.html" class="role-link">🛡️ Ադմին</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+        
+        function handleStudentLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Check user in localStorage
+            const users = JSON.parse(localStorage.getItem('brainik_users') || '[]');
+            const user = users.find(u => u.email === email && u.password === password && u.role === 'student');
+            
+            if (user) {
+                localStorage.setItem('brainik_current_user', JSON.stringify(user));
+                alert('✅ Բարի գալուստ, ' + user.firstName + '!');
+                window.location.href = 'student-dashboard.html';
+            } else {
+                alert('❍ Սխալ էլ. հասցե կամ գաղտնաբառ');
+            }
+        }
+        
+        function socialLogin(provider) {
+            alert(`🔐 Մուտք ${provider}-ով...`);
+        }
+    </script>
+</body>
+</html>

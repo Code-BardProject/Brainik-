@@ -1,0 +1,69 @@
+c:/Users/Admin/Desktop/coding/
+├── HTML (25 pages)
+│   ├── index.html                 # Home Page
+│   ├── puzzles.html               # Puzzles/Exercises Page
+│   ├── stats.html                 # User Statistics Page
+│   ├── ranking.html               # Global Ranking Page
+│   ├── hero-cards.html            # Hero Cards Collection
+│   ├── login.html                 # Login Page (ENHANCED with role routing)
+│   ├── signup.html                # Registration Page (ENHANCED with validation)
+│   ├── forgot-password.html       # Password Recovery
+│   ├── admin-login.html           # Admin Login (NEW)
+│   ├── admin-signup.html          # Admin Registration (NEW)
+│   ├── admin-dashboard.html       # Admin Dashboard (ENHANCED)
+│   ├── teacher-dashboard.html     # Teacher Dashboard
+│   ├── parent-dashboard.html      # Parent Dashboard
+│   ├── settings.html              # Settings Page
+│   ├── notifications.html         # Notifications Page
+│   ├── certificates.html          # Certificates Page
+│   ├── pricing.html               # Pricing Page
+│   ├── loading.html               # Loading Screen
+│   ├── 404.html                   # Error Page
+│   ├── game-colors.html           # Colors Game (ENHANCED)
+│   ├── game-math.html             # Math Game (ENHANCED)
+│   ├── game-memory.html           # Memory Game (ENHANCED)
+│   ├── game-alphabet.html         # Alphabet Game (ENHANCED)
+│   ├── game-shapes.html           # Shapes Game (ENHANCED)
+│   └── quiz.html                  # Quiz Game (ENHANCED)
+│
+├── CSS (13 files)
+│   ├── design-system.css          # Core design system
+│   ├── header.css                 # Header & navigation
+│   ├── footer.css                 # Footer styles
+│   ├── home.css                   # Homepage styles
+│   ├── puzzles.css                # Puzzles page
+│   ├── stats-ranking.css          # Stats & ranking
+│   ├── auth.css                   # Authentication pages
+│   ├── dashboard.css              # Dashboard styles
+│   ├── hero-cards.css             # Hero cards
+│   ├── settings.css               # Settings
+│   ├── pricing.css                # Pricing
+│   ├── game.css                   # Game styles
+│   └── admin.css                  # Admin styles
+│
+├── JavaScript (4 files)
+│   ├── main.js                    # Core interactions & animations
+│   ├── i18n.js                    # Multi-language system (NEW)
+│   ├── admin.js                   # Admin functionality (NEW)
+│   └── games-enhanced.js          # Enhanced game features (NEW)
+│
+├── ?
+│   ├── 
+│   ├── 
+│   └── README.md                  
+│
+└── Total: 25 HTML + 13 CSS + 4 JS = 42 files
+
+Features Implemented:
+✅ Multi-language system (AM, RU, EN)
+✅ Role-based routing (Student, Parent, Teacher, Admin)
+✅ Animated logo with hover effects
+✅ Admin login with logout functionality
+✅ Admin registration with verification
+✅ Enhanced games with sound effects
+✅ Form validation and error handling
+✅ Password strength checker
+✅ Contact/support section in forms
+✅ Social login (Google, Facebook)
+✅ Loading screen with animation
+✅ 100% Responsive design

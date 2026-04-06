@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Դասակարգ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Teacher" class="sidebar-avatar">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">Հովհաննես Պ.</div>
+                <div class="sidebar-user-role">Ուսուցիչ</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Հիմնական</span>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active">
+                    <span class="icon">📊</span>
+                    <span>Վահանակ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">👨‍🎓</span>
+                    <span>Աշակերտներ</span>
+                    <span class="badge">24</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">📚</span>
+                    <span>Առաջադրանքներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">📅</span>
+                    <span>Դասացուցակ</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Հավելյալ</span>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link">
+                    <span class="icon">📈</span>
+                    <span>Վիճակագրություն</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">🏆</span>
+                    <span>Մրցույթներ</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="icon">💬</span>
+                    <span>Հաղորդագրություններ</span>
+                    <span class="badge">3</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="sidebar-section">
+            <span class="sidebar-section-title">Հաշիվ</span>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link">
+                    <span class="icon">⚙️</span>
+                    <span>Կարգավորումներ</span>
+                </a>
+                <a href="login.html" class="sidebar-link">
+                    <span class="icon">🚪</span>
+                    <span>Դուրս գալ</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Ուսուցչի Վահանակ</h1>
+            <div class="dashboard-actions">
+                <button class="btn btn-secondary">📅 Այսօր: Հունվար 21</button>
+                <button class="btn btn-primary">+ Նոր առաջադրանք</button>
+            </div>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon blue">👨‍🎓</div>
+                    <span class="stat-card-trend up">+2 ↑</span>
+                </div>
+                <div class="stat-card-value">24</div>
+                <div class="stat-card-label">Աշակերտներ</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon green">✅</div>
+                    <span class="stat-card-trend up">+12% ↑</span>
+                </div>
+                <div class="stat-card-value">87%</div>
+                <div class="stat-card-label">Ավարտված առաջադրանքներ</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon yellow">📚</div>
+                    <span class="stat-card-trend up">+5 ↑</span>
+                </div>
+                <div class="stat-card-value">156</div>
+                <div class="stat-card-label">Ուղարկված առաջադրանքներ</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon pink">⭐</div>
+                    <span class="stat-card-trend up">+234 ↑</span>
+                </div>
+                <div class="stat-card-value">4,567</div>
+                <div class="stat-card-label">Ընդհանուր աստղեր</div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Students Chart -->
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">📊 Աշակերտների առաջադիմություն</h3>
+                    <div class="dashboard-card-actions">
+                        <button class="dashboard-card-btn">Ամիս</button>
+                        <button class="dashboard-card-btn active">Շաբաթ</button>
+                    </div>
+                </div>
+                <div class="dashboard-card-content">
+                    <div class="activity-chart">
+                        <div class="chart-placeholder">
+                            <span>📈</span>
+                            <span>Աշակերտների առաջադիմության գրաֆիկը կցուցադրվի այստեղ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">⚡ Արագ գործողություններ</h3>
+                </div>
+                <div class="dashboard-card-content">
+                    <div class="quick-actions">
+                        <button class="quick-action-btn">
+                            <span class="quick-action-icon">📚</span>
+                            <span class="quick-action-label">Նոր առաջադրանք</span>
+                        </button>
+                        <button class="quick-action-btn">
+                            <span class="quick-action-icon">📢</span>
+                            <span class="quick-action-label">Հայտարարություն</span>
+                        </button>
+                        <button class="quick-action-btn">
+                            <span class="quick-action-icon">📊</span>
+                            <span class="quick-action-label">Գնահատել</span>
+                        </button>
+                        <button class="quick-action-btn">
+                            <span class="quick-action-icon">📅</span>
+                            <span class="quick-action-label">Պլանավորել</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Students -->
+        <div class="dashboard-card" style="margin-top: var(--space-2xl);">
+            <div class="dashboard-card-header">
+                <h3 class="dashboard-card-title">👨‍🎓 Ակտիվ աշակերտներ</h3>
+                <a href="#" class="dashboard-card-btn">Բոլորը →</a>
+            </div>
+            <div class="dashboard-card-content">
+                <div class="students-grid">
+                    <div class="student-card">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=200&q=80" alt="Student" class="student-avatar">
+                        <h4 class="student-name">Անի Մ.</h4>
+                        <p class="student-class">5-րդ դասարան</p>
+                        <div class="student-progress">
+                            <div class="student-progress-bar">
+                                <div class="student-progress-fill" style="width: 92%"></div>
+                            </div>
+                            <span class="student-progress-text">92%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="student-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Student" class="student-avatar">
+                        <h4 class="student-name">Դավիթ Հ.</h4>
+                        <p class="student-class">5-րդ դասարան</p>
+                        <div class="student-progress">
+                            <div class="student-progress-bar">
+                                <div class="student-progress-fill" style="width: 88%"></div>
+                            </div>
+                            <span class="student-progress-text">88%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="student-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Student" class="student-avatar">
+                        <h4 class="student-name">Մարիամ Ս.</h4>
+                        <p class="student-class">5-րդ դասարան</p>
+                        <div class="student-progress">
+                            <div class="student-progress-bar">
+                                <div class="student-progress-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="student-progress-text">85%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="student-card">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Student" class="student-avatar">
+                        <h4 class="student-name">Գագիկ Պ.</h4>
+                        <p class="student-class">5-րդ դասարան</p>
+                        <div class="student-progress">
+                            <div class="student-progress-bar">
+                                <div class="student-progress-fill" style="width: 78%"></div>
+                            </div>
+                            <span class="student-progress-text">78%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Assignments -->
+        <div class="dashboard-card" style="margin-top: var(--space-2xl);">
+            <div class="dashboard-card-header">
+                <h3 class="dashboard-card-title">📋 Վերջին առաջադրանքներ</h3>
+                <a href="#" class="dashboard-card-btn">Բոլորը →</a>
+            </div>
+            <div class="dashboard-card-content">
+                <div class="assignments-list">
+                    <div class="assignment-card">
+                        <div class="assignment-icon">🧮</div>
+                        <div class="assignment-content">
+                            <h4 class="assignment-title">Մաթեմատիկայի տնային աշխատանք</h4>
+                            <div class="assignment-meta">
+                                <span>📅 Վերջնաժամկետ: Հունվար 25</span>
+                                <span>👨‍🎓 24 աշակերտ</span>
+                            </div>
+                        </div>
+                        <span class="assignment-status pending">Ընթացիկ</span>
+                    </div>
+                    
+                    <div class="assignment-card">
+                        <div class="assignment-icon">📜</div>
+                        <div class="assignment-content">
+                            <h4 class="assignment-title">Հայոց պատմություն - Միջնադար</h4>
+                            <div class="assignment-meta">
+                                <span>📅 Վերջնաժամկետ: Հունվար 23</span>
+                                <span>👨‍🎓 20 աշակերտ</span>
+                            </div>
+                        </div>
+                        <span class="assignment-status completed">Ավարտված</span>
+                    </div>
+                    
+                    <div class="assignment-card">
+                        <div class="assignment-icon">🔬</div>
+                        <div class="assignment-content">
+                            <h4 class="assignment-title">Բնագիտություն - Բույսերի աշխարհ</h4>
+                            <div class="assignment-meta">
+                                <span>📅 Վերջնաժամկետ: Հունվար 20</span>
+                                <span>👨‍🎓 22 աշակերտ</span>
+                            </div>
+                        </div>
+                        <span class="assignment-status overdue">Ուշացած</span>
+                    </div>
+                    
+                    <div class="assignment-card">
+                        <div class="assignment-icon">🌍</div>
+                        <div class="assignment-content">
+                            <h4 class="assignment-title">Աշխարհագրություն - Մայրցամաքներ</h4>
+                            <div class="assignment-meta">
+                                <span>📅 Վերջնաժամկետ: Հունվար 27</span>
+                                <span>👨‍🎓 24 աշակերտ</span>
+                            </div>
+                        </div>
+                        <span class="assignment-status pending">Ընթացիկ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+        
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

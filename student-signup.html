@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Գրանցում ուսանողների համար - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .student-container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .student-container::-webkit-scrollbar { width: 6px; }
+        .student-container::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 3px;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .student-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .age-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        
+        .age-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .age-option {
+            padding: 12px 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .age-option:hover, .age-option.active {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .age-number {
+            font-weight: 700;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        
+        .form-label span { color: #e74c3c; }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .password-wrapper {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.6;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .checkbox-wrapper input {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+            margin-top: 2px;
+        }
+        
+        .checkbox-wrapper a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .social-btn:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .footer-text a {
+            color: #667eea;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .other-roles {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .other-roles-title {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .role-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .role-link {
+            font-size: 13px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .student-container {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+            
+            .age-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <div class="logo-section">
+            <div class="student-icon">🎓</div>
+            <span class="role-badge">Ուսանող</span>
+        </div>
+        
+        <h1>Ստեղծիր հաշիվ</h1>
+        <p class="subtitle">Սկսիր ուսումդ Brainik-ում</p>
+        
+        <div class="age-section">
+            <div class="section-label">Ընտրիր տարիքդ</div>
+            <div class="age-options">
+                <label class="age-option" onclick="selectAge(this)">
+                    <input type="radio" name="age" value="2-3" hidden>
+                    <span class="age-number">2-3</span>
+                </label>
+                <label class="age-option active" onclick="selectAge(this)">
+                    <input type="radio" name="age" value="4-6" hidden checked>
+                    <span class="age-number">4-6</span>
+                </label>
+                <label class="age-option" onclick="selectAge(this)">
+                    <input type="radio" name="age" value="7-9" hidden>
+                    <span class="age-number">7-9</span>
+                </label>
+                <label class="age-option" onclick="selectAge(this)">
+                    <input type="radio" name="age" value="10+" hidden>
+                    <span class="age-number">10+</span>
+                </label>
+            </div>
+        </div>
+        
+        <form id="studentSignupForm" onsubmit="handleStudentSignup(event)">
+            <div class="form-group">
+                <label class="form-label">Անուն <span>*</span></label>
+                <input type="text" class="form-input" id="firstName" placeholder="Ձեր անունը" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Ազգանուն <span>*</span></label>
+                <input type="text" class="form-input" id="lastName" placeholder="Ձեր ազգանունը" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Էլ. փոստ <span>*</span></label>
+                <input type="email" class="form-input" id="email" placeholder="example@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Գաղտնաբառ <span>*</span></label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="password" placeholder="Անվտանգ գաղտնաբառ" required minlength="8">
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="terms" required>
+                <span>Ես համաձայն եմ <a href="#">Օգտագործման պայմաններին</a> և <a href="#">Գաղտնիության քաղաքականությանը</a></span>
+            </label>
+            
+            <button type="submit" class="btn-submit">🚀 Ստեղծել հաշիվ</button>
+        </form>
+        
+        <div class="divider">կամ</div>
+        
+        <div class="social-login">
+            <button class="social-btn" onclick="socialSignup('google')">🔍 Google</button>
+            <button class="social-btn" onclick="socialSignup('facebook')">📘 Facebook</button>
+        </div>
+        
+        <p class="footer-text">
+            Արդեն ունե՞ս հաշիվ <a href="student-login.html">Մուտք գործել →</a>
+        </p>
+        
+        <div class="other-roles">
+            <div class="other-roles-title">Այլ դերեր</div>
+            <div class="role-links">
+                <a href="teacher-signup.html" class="role-link">👨‍🏫 Ուսուցիչ</a>
+                <a href="parent-signup.html" class="role-link">👨‍👩‍👧 Ծնող</a>
+                <a href="admin-signup.html" class="role-link">🛡️ Ադմին</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function selectAge(element) {
+            document.querySelectorAll('.age-option').forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+            element.querySelector('input').checked = true;
+        }
+        
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+        
+        function handleStudentSignup(e) {
+            e.preventDefault();
+            const formData = {
+                role: 'student',
+                age: document.querySelector('input[name="age"]:checked').value,
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+            
+            // Save to localStorage
+            const users = JSON.parse(localStorage.getItem('brainik_users') || '[]');
+            users.push(formData);
+            localStorage.setItem('brainik_users', JSON.stringify(users));
+            localStorage.setItem('brainik_current_user', JSON.stringify(formData));
+            
+            alert('✅ Հաշիվը ստեղծվեց! Բարի գալուստ!');
+            window.location.href = 'student-dashboard.html';
+        }
+        
+        function socialSignup(provider) {
+            alert(`🔐 Մուտք ${provider}-ով...`);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

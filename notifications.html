@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ծանուցումներ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .notifications-page {
+            padding-top: 100px;
+            padding-bottom: var(--space-3xl);
+            background: var(--bg-secondary);
+            min-height: 100vh;
+        }
+        
+        .notifications-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .page-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            color: var(--text-primary);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .filters {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: var(--space-sm) var(--space-md);
+            background: white;
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-purple);
+            color: white;
+        }
+        
+        .notifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .notification-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 20px var(--shadow-soft);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .notification-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px var(--shadow-medium);
+        }
+        
+        .notification-item.unread {
+            border-left: 4px solid var(--primary-purple);
+        }
+        
+        .notification-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xl);
+            flex-shrink: 0;
+        }
+        
+        .notification-icon.achievement {
+            background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+            color: white;
+        }
+        
+        .notification-icon.friend {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .notification-icon.system {
+            background: linear-gradient(135deg, #6bcb77, #4d96ff);
+            color: white;
+        }
+        
+        .notification-icon.reminder {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-red);
+            border-radius: 50%;
+        }
+        
+        .notification-text {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .notification-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-sm);
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+        }
+        
+        .notification-time::before {
+            content: '🕐 ';
+        }
+        
+        .notification-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .notification-action {
+            padding: var(--space-xs);
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+        
+        .notification-action:hover {
+            color: var(--secondary-red);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--space-3xl);
+        }
+        
+        .empty-icon {
+            font-size: 5rem;
+            margin-bottom: var(--space-lg);
+            opacity: 0.5;
+        }
+        
+        .empty-title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .empty-text {
+            color: var(--text-secondary);
+        }
+        
+        .load-more {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+        
+        @media (max-width: 600px) {
+            .page-header {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+            
+            .notification-item {
+                flex-direction: column;
+            }
+            
+            .notification-icon {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                    </ul>
+                    <div class="user-actions">
+                        <a href="notifications.html" class="btn btn-ghost" style="position: relative;">
+                            🔔
+                            <span style="position: absolute; top: -5px; right: -5px; width: 18px; height: 18px; background: var(--secondary-red); color: white; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center;">3</span>
+                        </a>
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="notifications-page">
+        <div class="container">
+            <div class="notifications-container">
+                <div class="page-header">
+                    <h1 class="page-title">🔔 Ծանուցումներ</h1>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="markAllRead()">✓ Ամենը կարդացված է</button>
+                        <button class="btn btn-ghost" onclick="clearAll()">🗑️ Մաքրել</button>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Բոլորը</button>
+                    <button class="filter-btn" data-filter="achievement">Մրցանակներ</button>
+                    <button class="filter-btn" data-filter="friend">Ընկերներ</button>
+                    <button class="filter-btn" data-filter="system">Համակարգ</button>
+                </div>
+                
+                <div class="notifications-list" id="notificationsList">
+                    <div class="notification-item unread" data-type="achievement">
+                        <div class="notification-icon achievement">🏆</div>
+                        <div class="notification-content">
+                            <h3 class="notification-title">
+                                <span class="unread-dot"></span>
+                                Նոր նվաճում բացված է!
+                            </h3>
+                            <p class="notification-text">Դու բացեցիր «Մաթեմատիկայի վարպետ» մրցանակը 50 դաս ավարտելու համար։</p>
+                            <div class="notification-meta">
+                                <span class="notification-time">5 րոպե առաջ</span>
+                                <span>⭐ +100 աստղ</span>
+                            </div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="notification-action" onclick="deleteNotification(this)">✕</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item unread" data-type="friend">
+                        <div class="notification-icon friend">👋</div>
+                        <div class="notification-content">
+                            <h3 class="notification-title">
+                                <span class="unread-dot"></span>
+                                Նոր ընկեր
+                            </h3>
+                            <p class="notification-text">Դավիթ Հակոբյանն ավելացրեց քեզ որպես ընկեր։</p>
+                            <div class="notification-meta">
+                                <span class="notification-time">1 ժամ առաջ</span>
+                            </div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="notification-action" onclick="deleteNotification(this)">✕</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item" data-type="system">
+                        <div class="notification-icon system">📢</div>
+                        <div class="notification-content">
+                            <h3 class="notification-title">Նոր առաջադրանքներ</h3>
+                            <p class="notification-text">Ավելացվել են 10 նոր հանելուկ «Հայկական պատմություն» բաժնում։</p>
+                            <div class="notification-meta">
+                                <span class="notification-time">3 ժամ առաջ</span>
+                            </div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="notification-action" onclick="deleteNotification(this)">✕</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item" data-type="reminder">
+                        <div class="notification-icon reminder">⏰</div>
+                        <div class="notification-content">
+                            <h3 class="notification-title">Օրական հիշեցում</h3>
+                            <p class="notification-text">Մի մոռացի՛ր այսօր սովորել։ Քեզ մնացել է ընդամենը 2 դաս՝ օրական նպատակին հասնելու համար։</p>
+                            <div class="notification-meta">
+                                <span class="notification-time">Այսօր 9:00</span>
+                            </div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="notification-action" onclick="deleteNotification(this)">✕</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item" data-type="achievement">
+                        <div class="notification-icon achievement">🦸</div>
+                        <div class="notification-content">
+                            <h3 class="notification-title">Նոր հերոսի քարտ</h3>
+                            <p class="notification-text">Շնորհավորում ենք! Դու ստացար «Վարդան Մամիկոնյան» հերոսի քարտը։</p>
+                            <div class="notification-meta">
+                                <span class="notification-time">Երեկ</span>
+                                <span>🏆 Rare</span>
+                            </div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="notification-action" onclick="deleteNotification(this)">✕</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="load-more">
+                    <button class="btn btn-secondary">Ցույց տալ ավելին</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.notification-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-type') === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Mark all as read
+        function markAllRead() {
+            document.querySelectorAll('.notification-item.unread').forEach(item => {
+                item.classList.remove('unread');
+                item.querySelector('.unread-dot')?.remove();
+            });
+            
+            // Update badge
+            const badge = document.querySelector('.user-actions .btn-ghost span');
+            if (badge) badge.remove();
+            
+            showToast('Բոլոր ծանուցումները կարդացված են', 'success');
+        }
+        
+        // Clear all
+        function clearAll() {
+            if (confirm('Վստա՞հ ես, որ ուզում ես ջնջել բոլոր ծանուցումները։')) {
+                document.querySelector('.notifications-list').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🔔</div>
+                        <h3 class="empty-title">Ծանուցումներ չկան</h3>
+                        <p class="empty-text">Դու դեռ չունես նոր ծանուցումներ։</p>
+                    </div>
+                `;
+                document.querySelector('.load-more').style.display = 'none';
+                showToast('Ծանուցումները ջնջված են', 'success');
+            }
+        }
+        
+        // Delete single notification
+        function deleteNotification(btn) {
+            const item = btn.closest('.notification-item');
+            item.style.animation = 'slideOutRight 0.3s ease-out';
+            setTimeout(() => item.remove(), 300);
+        }
+    </script>
+</body>
+</html>

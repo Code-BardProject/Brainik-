@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Գնագրում - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pricing.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+                        <li><a href="login.html" class="btn btn-primary">Sign In</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pricing-page">
+        <section class="pricing-hero">
+            <div class="container">
+                <div class="pricing-header">
+                    <h1 class="pricing-title">Ընտրիր քո <span class="gradient-text">պլանը</span></h1>
+                    <p class="pricing-subtitle">Սկսիր անվճար և արդյունքներից հետո կատարել ապgrade</p>
+                    
+                    <div class="billing-toggle">
+                        <span class="toggle-label active">Ամսական</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="billingToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Տարեկան <span class="save-badge">-20%</span></span>
+                    </div>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h3 class="plan-name">🆓 Free</h3>
+                            <div class="plan-price">
+                                <span class="price">0</span>
+                                <span class="currency">դրամ</span>
+                            </div>
+                            <p class="plan-description">Փորձիր և սովորիր հիմնականը</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>5 դաս ամեն օր</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Հիմնական առաջադրանքներ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Վարկանիշային աղյուսակ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>10 հերոսի քարտ</span>
+                            </div>
+                            <div class="feature-item disabled">
+                                <span class="feature-x">×</span>
+                                <span>Ծնողական վերահսկողություն</span>
+                            </div>
+                            <div class="feature-item disabled">
+                                <span class="feature-x">×</span>
+                                <span>Օֆլայն ռեժիմ</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary pricing-btn">Սկսել անվճար</button>
+                    </div>
+
+                    <!-- Standard Plan -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">⭐ Ամենահանրաճառable</div>
+                        <div class="pricing-card-header">
+                            <h3 class="plan-name">🌟 Standard</h3>
+                            <div class="plan-price">
+                                <span class="price" data-monthly="2,900" data-yearly="2,320">2,900</span>
+                                <span class="currency">դրամ/ամիս</span>
+                            </div>
+                            <p class="plan-description">Ամբողջական հավաքածու սովորողների համար</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Անսահմանափակ դասեր</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Բոլոր առաջադրանքներ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>100+ հերոսի քարտ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Ծնողական վերահսկողություն</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Վիճակագրություն և հաշվետվություն</span>
+                            </div>
+                            <div class="feature-item disabled">
+                                <span class="feature-x">×</span>
+                                <span>Օֆլայն ռեժիմ</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary pricing-btn">Ընտրել Standard</button>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h3 class="plan-name">👑 Premium</h3>
+                            <div class="plan-price">
+                                <span class="price" data-monthly="4,900" data-yearly="3,920">4,900</span>
+                                <span class="currency">դրամ/ամիս</span>
+                            </div>
+                            <p class="plan-description">Ամենը և ավելին</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Անսահմանափակ դասեր</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Օֆլայն ռեժիմ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Առաջնահերթ աջակցություն</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Ուսուցչի վահանակ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Մրցույթներ և մրցանակներ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Մրցանակային վկայականներ</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary pricing-btn">Ընտրել Premium</button>
+                    </div>
+                </div>
+
+                <div class="pricing-faq">
+                    <h2 class="faq-title">Հաճախակի հարցեր</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h4 class="faq-question">📌 Որքա՞ն ժամանակ է անվճար պլանը</h4>
+                            <p class="faq-answer">Անվճար պլանը մշտական է։ Որոշ առաջադրանքների սահմանափակում կա, բայց կարող ես միշտ անվճար սովորել։</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="faq-question">📌 Կարող ե՞մ փոխել պլանը ցանկացած ժամանակ</h4>
+                            <p class="faq-answer">Այո, կարող ես ցանկացած ժամանակ ապgrade կամ downgrade անել քո պլանը։</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="faq-question">📌 Ո՞վ կարող է օգտագործել Premium պլանը</h4>
+                            <p class="faq-answer">Premium պլանը կարող են օգտագործել ծնողները, ովքինց ունեն բազմաթիվ երեխաներ կամ ուսուցիչները, ովքեր ունեն դասարաններ։</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const billingToggle = document.getElementById('billingToggle');
+        const priceElements = document.querySelectorAll('.price');
+        const currencyLabels = document.querySelectorAll('.currency');
+        
+        billingToggle.addEventListener('change', function() {
+            const isYearly = this.checked;
+            
+            priceElements.forEach(price => {
+                const monthly = price.getAttribute('data-monthly');
+                const yearly = price.getAttribute('data-yearly');
+                
+                price.style.opacity = '0';
+                setTimeout(() => {
+                    price.textContent = isYearly ? yearly : monthly;
+                    price.style.opacity = '1';
+                }, 200);
+            });
+            
+            currencyLabels.forEach(currency => {
+                currency.textContent = isYearly ? 'դրամ/տարի' : 'դրամ/ամիս';
+            });
+        });
+    </script>
+</body>
+</html>

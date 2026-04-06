@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մի պահ... - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .loading-container {
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .spinner-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+        }
+        
+        .spinner {
+            position: absolute;
+            inset: 0;
+            border: 6px solid rgba(255,255,255,0.2);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .spinner-inner {
+            position: absolute;
+            inset: 20px;
+            border: 4px solid rgba(255,255,255,0.2);
+            border-bottom-color: #ffd93d;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite reverse;
+        }
+        
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+        
+        .loading-message {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .progress-bar {
+            width: 300px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd93d, #ff6b6b);
+            width: 0%;
+            border-radius: 4px;
+            animation: progress 3s ease-out forwards;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        @keyframes progress {
+            to { width: 100%; }
+        }
+        
+        .tips {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        .tips::before {
+            content: '💡 ';
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo">
+            <div class="logo-icon">🧠</div>
+            <span>Brainik</span>
+        </div>
+        
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <div class="spinner-inner"></div>
+        </div>
+        
+        <div class="loading-text">
+            Բեռնվում է<span class="loading-dots"></span>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        
+        <div class="loading-message">
+            Պատրաստում ենք քո անհատականացված ուսումնառության պլանը
+        </div>
+    </div>
+    
+    <div class="tips">Հուշում: Օգտագործիր հենց սկսած մրցանակները մոտիվացիայի համար</div>
+    
+    <script>
+        // Simulate loading and redirect
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 3500);
+        
+        // Rotate tips
+        const tips = [
+            'Հուշում: Օգտագործիր հենց սկսած մրցանակները մոտիվացիայի համար',
+            'Հուշում: Օրական 15 րոպե սովորելը լավագույն արդյունք է տալիս',
+            'Հուշում: Հավաքիր հերոսների քարտերը՝ պատմություն սովորելու համար',
+            'Հուշում: Մրցիր ընկերներիդ հետ՝ առավելագույն մրցանակներ ստանալու համար'
+        ];
+        
+        let tipIndex = 0;
+        setInterval(() => {
+            tipIndex = (tipIndex + 1) % tips.length;
+            document.querySelector('.tips').textContent = tips[tipIndex];
+        }, 2500);
+    </script>
+</body>
+</html>

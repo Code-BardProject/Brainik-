@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👨‍👩‍👧 Գրանցում ծնողների համար - Brainik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .parent-container {
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .parent-container::-webkit-scrollbar { width: 6px; }
+        .parent-container::-webkit-scrollbar-thumb {
+            background: rgba(252, 74, 26, 0.3);
+            border-radius: 3px;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .parent-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 30px rgba(252, 74, 26, 0.4);
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fc4a1a, #f7b733);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .benefits {
+            background: linear-gradient(135deg, rgba(252, 74, 26, 0.1), rgba(247, 183, 51, 0.1));
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .benefits-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fc4a1a;
+            margin-bottom: 10px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .benefits-list li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #fc4a1a;
+            font-weight: bold;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        
+        .form-label span { color: #e74c3c; }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            border-color: #fc4a1a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(252, 74, 26, 0.1);
+        }
+        
+        .password-wrapper {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.6;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .checkbox-wrapper input {
+            width: 18px;
+            height: 18px;
+            accent-color: #fc4a1a;
+            margin-top: 2px;
+        }
+        
+        .checkbox-wrapper a {
+            color: #fc4a1a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(252, 74, 26, 0.4);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .footer-text a {
+            color: #fc4a1a;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .other-roles {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .other-roles-title {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .role-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .role-link {
+            font-size: 13px;
+            color: #fc4a1a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .parent-container {
+                padding: 25px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-container">
+        <div class="logo-section">
+            <div class="parent-icon">👨‍👩‍👧</div>
+            <span class="role-badge">Ծնող</span>
+        </div>
+        
+        <h1>Ստեղծիր հաշիվ</h1>
+        <p class="subtitle">Հետևիր քո երեխայի առաջադիմությանը</p>
+        
+        <div class="benefits">
+            <div class="benefits-title">✨ Ձեր առավելությունները</div>
+            <ul class="benefits-list">
+                <li>Հետևել երեխայի առաջադիմությանը</li>
+                <li>Տեսնել ստացած գնահատականները</li>
+                <li>Ստանալ ծանուցումներ նորությունների մասին</li>
+                <li>Կապ ուսուցչի հետ</li>
+            </ul>
+        </div>
+        
+        <form id="parentSignupForm" onsubmit="handleParentSignup(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Անուն <span>*</span></label>
+                    <input type="text" class="form-input" id="firstName" placeholder="Անուն" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ազգանուն <span>*</span></label>
+                    <input type="text" class="form-input" id="lastName" placeholder="Ազգանուն" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Էլ. փոստ <span>*</span></label>
+                <input type="email" class="form-input" id="email" placeholder="example@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Հեռախոս <span>*</span></label>
+                <input type="tel" class="form-input" id="phone" placeholder="+374 XX XX XX XX" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Ձեր երեխայի անունը <span>*</span></label>
+                <input type="text" class="form-input" id="childName" placeholder="Օրինակ՝ Աննա" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Գաղտնաբառ <span>*</span></label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="password" placeholder="Անվտանգ գաղտնաբառ" required minlength="8">
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="terms" required>
+                <span>Ես համաձայն եմ <a href="#">Օգտագործման պայմաններին</a> և <a href="#">Գաղտնիության քաղաքականությանը</a></span>
+            </label>
+            
+            <button type="submit" class="btn-submit">❤️ Ստեղծել հաշիվ</button>
+        </form>
+        
+        <div class="divider">կամ</div>
+        
+        <p class="footer-text">
+            Արդեն ունե՞ս հաշիվ <a href="parent-login.html">Մուտք գործել →</a>
+        </p>
+        
+        <div class="other-roles">
+            <div class="other-roles-title">Այլ դերեր</div>
+            <div class="role-links">
+                <a href="student-signup.html" class="role-link">🎓 Ուսանող</a>
+                <a href="teacher-signup.html" class="role-link">👨‍🏫 Ուսուցիչ</a>
+                <a href="admin-signup.html" class="role-link">🛡️ Ադմին</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+        
+        function handleParentSignup(e) {
+            e.preventDefault();
+            const formData = {
+                role: 'parent',
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                childName: document.getElementById('childName').value,
+                password: document.getElementById('password').value
+            };
+            
+            // Save to localStorage
+            const parents = JSON.parse(localStorage.getItem('brainik_parents') || '[]');
+            parents.push(formData);
+            localStorage.setItem('brainik_parents', JSON.stringify(parents));
+            localStorage.setItem('brainik_current_user', JSON.stringify(formData));
+            
+            alert('✅ Հաշիվը ստեղծվեց! Բարի գալուստ, ' + formData.firstName + '!');
+            window.location.href = 'parent-dashboard.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կարգավորումներ - Brainik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span class="logo-text">Brainik</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="stats.html" class="nav-link">My Stats</a></li>
+                        <li><a href="settings.html" class="nav-link active">Settings</a></li>
+                    </ul>
+                    <div class="user-actions">
+                        <a href="student-dashboard.html" class="user-avatar-link">
+                            <div class="user-avatar">ԱՄ</div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="settings-page">
+        <div class="container">
+            <h1 class="page-title">⚙️ Կարգավորումներ</h1>
+            
+            <div class="settings-grid">
+                <!-- Profile Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">👤</span>
+                        <h2>Անձնական տվյալներ</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="avatar-upload">
+                            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=200&q=80" alt="Avatar" class="current-avatar">
+                            <button class="btn btn-secondary">Փոխել լուսանկարը</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Անուն</label>
+                            <input type="text" class="form-control" value="Անի">
+                        </div>
+                        <div class="form-group">
+                            <label>Ազգանուն</label>
+                            <input type="text" class="form-control" value="Մանուկյան">
+                        </div>
+                        <div class="form-group">
+                            <label>Տարիք</label>
+                            <select class="form-control">
+                                <option>10 տարեկան</option>
+                                <option>9 տարեկան</option>
+                                <option>11 տարեկան</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary save-btn">Պահպանել փոփոխությունները</button>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">🔒</span>
+                        <h2>Հաշիվ</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="form-group">
+                            <label>Էլ. փոստ</label>
+                            <input type="email" class="form-control" value="ani@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Գաղտնաբառ</label>
+                            <input type="password" class="form-control" value="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label>Հեռախոս</label>
+                            <input type="tel" class="form-control" placeholder="+374 XX XXX XXX">
+                        </div>
+                        <a href="forgot-password.html" class="link">Փոխել գաղտնաբառը</a>
+                    </div>
+                </div>
+
+                <!-- Language Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">🌐</span>
+                        <h2>Լեզու</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="language-options">
+                            <label class="language-option active">
+                                <input type="radio" name="lang" value="hy" checked>
+                                <span class="lang-flag">🇦🇲</span>
+                                <span class="lang-name">Հայերեն</span>
+                            </label>
+                            <label class="language-option">
+                                <input type="radio" name="lang" value="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-name">English</span>
+                            </label>
+                            <label class="language-option">
+                                <input type="radio" name="lang" value="ru">
+                                <span class="lang-flag">🇷🇺</span>
+                                <span class="lang-name">Русский</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">🔔</span>
+                        <h2>Ծանուցումներ</h2>
+                    </div>
+                    <div class="settings-content">
+                        <label class="toggle-item">
+                            <span>Օրական հիշեցումներ</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                        <label class="toggle-item">
+                            <span>Նոր նվաճումներ</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                        <label class="toggle-item">
+                            <span>Ընկերների ակտիվություն</span>
+                            <input type="checkbox" class="toggle">
+                        </label>
+                        <label class="toggle-item">
+                            <span>Էլ. փոստով ծանուցումներ</span>
+                            <input type="checkbox" class="toggle">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">🔐</span>
+                        <h2>Գաղտնիություն</h2>
+                    </div>
+                    <div class="settings-content">
+                        <label class="toggle-item">
+                            <span>Հասանելիություն ընկերներին</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                        <label class="toggle-item">
+                            <span>Ցուցադրել վարկանիշում</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                        <label class="toggle-item">
+                            <span>Ցուցադրել հավաքածուն</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Parental Controls -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <span class="settings-icon">👨‍👩‍👧</span>
+                        <h2>Ծնողական վերահսկողություն</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="form-group">
+                            <label>Օրական ժամային սահմանափակում</label>
+                            <select class="form-control">
+                                <option>1 ժամ</option>
+                                <option selected>2 ժամ</option>
+                                <option>3 ժամ</option>
+                                <option>Անսահմանափակ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Հանգստի հիշեցում</label>
+                            <select class="form-control">
+                                <option>Ամեն 30 րոպե</option>
+                                <option selected>Ամեն ժամ</option>
+                                <option>Ամեն 2 ժամ</option>
+                            </select>
+                        </div>
+                        <label class="toggle-item">
+                            <span>Միայն տարիքային բովանդակություն</span>
+                            <input type="checkbox" class="toggle" checked>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="settings-card danger-zone">
+                <div class="settings-header">
+                    <span class="settings-icon">⚠️</span>
+                    <h2>Վտանգավոր գոտի</h2>
+                </div>
+                <div class="settings-content">
+                    <p class="danger-text">Հետևյալ գործողությունները չեն կարող հետարվել:</p>
+                    <button class="btn btn-danger">Ջնջել հաշիվը</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Brainik</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Toggle switches
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const label = this.closest('.toggle-item').querySelector('span');
+                showToast(`${label.textContent}: ${this.checked ? 'միացված' : 'անջատված'}`, 'success');
+            });
+        });
+
+        // Language selection with animation
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.language-option').forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show language change animation
+                showLanguageAnimation(this.querySelector('.lang-name').textContent);
+            });
+        });
+
+        function showLanguageAnimation(lang) {
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                inset: 0;
+                background: rgba(102, 126, 234, 0.95);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: white;
+                animation: fadeIn 0.3s ease-out;
+            `;
+            overlay.innerHTML = `
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🌐</div>
+                <h2 style="font-family: var(--font-display); font-size: 2rem;">Language Changed</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9;">Փոխվում է ${lang} լեզուն...</p>
+            `;
+            document.body.appendChild(overlay);
+            
+            setTimeout(() => {
+                overlay.style.animation = 'fadeOut 0.3s ease-out';
+                setTimeout(() => overlay.remove(), 300);
+            }, 1500);
+        }
+
+        // Save button
+        document.querySelector('.save-btn').addEventListener('click', function() {
+            this.textContent = '✓ Պահպանված է';
+            this.style.background = 'var(--secondary-green)';
+            showToast('Փոփոխությունները պահպանված են!', 'success');
+            
+            setTimeout(() => {
+                this.textContent = 'Պահպանել փոփոխությունները';
+                this.style.background = '';
+            }, 2000);
+        });
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 16px 24px;
+                background: ${type === 'success' ? '#6bcb77' : '#667eea'};
+                color: white;
+                border-radius: 12px;
+                font-weight: 600;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.animation = 'slideInRight 0.3s ease-out reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
