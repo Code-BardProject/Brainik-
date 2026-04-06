@@ -1,0 +1,309 @@
+/* ===== BRAINIK HERO CARDS PAGE ===== */
+
+.hero-cards-page {
+  padding-top: 100px;
+}
+
+/* Collection Progress */
+.collection-progress {
+  max-width: 400px;
+  margin: var(--space-xl) auto 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+  color: white;
+  font-weight: 600;
+}
+
+.progress-fraction {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+.progress-bar-large {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill-large {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd93d, #ff6b6b);
+  border-radius: var(--radius-full);
+  transition: width 1s ease-out;
+}
+
+/* Rarity Filters */
+.rarity-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.rarity-btn {
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rarity-btn:hover,
+.rarity-btn.active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-soft);
+}
+
+.rarity-btn.active {
+  background: var(--text-primary);
+  color: white;
+  border-color: var(--text-primary);
+}
+
+.rarity-btn.common.active { background: #b0b0b0; border-color: #b0b0b0; }
+.rarity-btn.rare.active { background: var(--primary-blue); border-color: var(--primary-blue); }
+.rarity-btn.epic.active { background: var(--primary-purple); border-color: var(--primary-purple); }
+.rarity-btn.legendary.active { background: linear-gradient(135deg, #ffd700, #ffed4e); color: #8b6914; border-color: #ffd700; }
+
+/* Hero Cards Grid */
+.hero-cards-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+/* Full Hero Card */
+.hero-card-full {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-frame {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  color: white;
+  transition: all var(--transition-base);
+  transform-style: preserve-3d;
+  border: 3px solid transparent;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.hero-card-full:hover .card-frame {
+  transform: translateY(-10px) rotateY(5deg);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.card-frame.common { border-color: #b0b0b0; }
+.card-frame.rare { border-color: var(--primary-blue); }
+.card-frame.epic { border-color: var(--primary-purple); box-shadow: 0 10px 40px rgba(118, 75, 162, 0.3); }
+.card-frame.legendary-frame { 
+  border-color: #ffd700; 
+  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4),
+              inset 0 0 30px rgba(255, 215, 0, 0.1);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 50%, #1a1a2e 100%);
+}
+
+/* Rarity Badge */
+.rarity-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rarity-badge.common { background: #b0b0b0; color: white; }
+.rarity-badge.rare { background: var(--primary-blue); color: white; }
+.rarity-badge.epic { background: var(--primary-purple); color: white; }
+.rarity-badge.legendary { 
+  background: linear-gradient(135deg, #ffd700, #ffed4e); 
+  color: #8b6914;
+  animation: shimmer 2s infinite;
+}
+.rarity-badge.locked-badge { background: rgba(255,255,255,0.1); color: var(--text-muted); }
+
+/* Hero Image Large */
+.hero-image-large {
+  width: 120px;
+  height: 120px;
+  margin: var(--space-xl) auto;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-5xl, 4rem);
+  border: 4px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero-image-large.locked-image {
+  background: rgba(255,255,255,0.05);
+  font-size: var(--text-4xl);
+  opacity: 0.5;
+}
+
+/* Hero Info Large */
+.hero-info-large {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-info-large h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-info-large p {
+  font-size: var(--text-sm);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hero Stats Bar */
+.hero-stats-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.stat-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+}
+
+.stat-bar span:first-child {
+  width: 24px;
+}
+
+.stat-bar span:last-child {
+  width: 30px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.stat-fill {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius-full);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: var(--radius-full);
+  width: var(--width, 0%);
+}
+
+.stat-fill.legendary-fill::after {
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+}
+
+/* Locked Card */
+.locked-frame {
+  background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.locked-frame .unlock-requirements {
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+
+.locked-frame .unlock-requirements p {
+  font-size: var(--text-sm);
+  opacity: 0.7;
+  margin-bottom: var(--space-sm);
+}
+
+.locked-frame .unlock-requirements ul {
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.locked-frame .unlock-requirements li {
+  padding: var(--space-xs) 0;
+  opacity: 0.5;
+}
+
+/* Card Flip Effect */
+.hero-card-full.flipped .card-frame {
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Legendary Glow Animation */
+@keyframes legendary-glow {
+  0%, 100% { box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6); }
+}
+
+.card-frame.legendary-frame {
+  animation: legendary-glow 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rarity-filters {
+    gap: var(--space-sm);
+  }
+  
+  .rarity-btn {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-xs);
+  }
+  
+  .hero-cards-full-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-image-large {
+    width: 100px;
+    height: 100px;
+  }
+}
